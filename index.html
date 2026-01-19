@@ -1,0 +1,2477 @@
+<!DOCTYPE html>
+<html lang="id" class="light-theme">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raki Raihan | Web Developer & Data Analyst</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <style>
+        :root {
+            /* Light Theme Default */
+            --primary-color: #6366f1;
+            --primary-light: #818cf8;
+            --secondary-color: #06b6d4;
+            --accent-color: #8b5cf6;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-card: #ffffff;
+            --border-color: #e2e8f0;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --neon-glow: 0 0 15px rgba(99, 102, 241, 0.3);
+            --transition: all 0.3s ease;
+        }
+
+        .dark-theme {
+            /* Dark Theme */
+            --primary-color: #818cf8;
+            --primary-light: #a5b4fc;
+            --secondary-color: #22d3ee;
+            --accent-color: #a78bfa;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-card: #1e293b;
+            --border-color: #334155;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            --glass-bg: rgba(30, 41, 59, 0.7);
+            --glass-border: rgba(129, 140, 248, 0.2);
+            --neon-glow: 0 0 20px rgba(129, 140, 248, 0.4);
+        }
+
+        .cyber-theme {
+            /* Cyber Theme */
+            --primary-color: #00f3ff;
+            --primary-light: #80f8ff;
+            --secondary-color: #ff2a6d;
+            --accent-color: #05d9e8;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0c0;
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121f;
+            --bg-card: #1a1a2e;
+            --border-color: #2d2d5a;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            --glass-bg: rgba(26, 26, 46, 0.7);
+            --glass-border: rgba(0, 243, 255, 0.2);
+            --neon-glow: 0 0 20px rgba(0, 243, 255, 0.5);
+        }
+
+        .nature-theme {
+            /* Nature Theme */
+            --primary-color: #10b981;
+            --primary-light: #34d399;
+            --secondary-color: #3b82f6;
+            --accent-color: #8b5cf6;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f0fdf4;
+            --bg-card: #ffffff;
+            --border-color: #d1fae5;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(16, 185, 129, 0.2);
+            --neon-glow: 0 0 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .sunset-theme {
+            /* Sunset Theme */
+            --primary-color: #f59e0b;
+            --primary-light: #fbbf24;
+            --secondary-color: #ef4444;
+            --accent-color: #8b5cf6;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --bg-primary: #ffffff;
+            --bg-secondary: #fffbeb;
+            --bg-card: #ffffff;
+            --border-color: #fde68a;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(245, 158, 11, 0.2);
+            --neon-glow: 0 0 15px rgba(245, 158, 11, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            transition: var(--transition);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            max-width: 700px;
+        }
+
+        /* Settings Dropdown Container */
+        .settings-container {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Settings Button */
+        .settings-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .settings-btn:hover {
+            transform: rotate(15deg);
+            background: var(--primary-color);
+            color: white;
+            box-shadow: var(--neon-glow);
+        }
+
+        /* Settings Dropdown */
+        .settings-dropdown {
+            max-height: 300px;
+            overflow: auto;
+            scroll-behavior: smooth;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 220px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--glass-border);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            z-index: 1000;
+        }
+
+        .settings-dropdown::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .settings-dropdown::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 10px;
+        }
+
+        .settings-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .settings-group {
+            margin-bottom: 20px;
+        }
+
+        .settings-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .settings-group h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Language Selector */
+        .lang-selector {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .lang-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            border-radius: 10px;
+            background: transparent;
+            border: 1px solid transparent;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .lang-option:hover {
+            background: rgba(0, 0, 0, 0.05);
+            border-color: var(--border-color);
+        }
+
+        .lang-option.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .lang-flag {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        /* Theme Selector */
+        .theme-selector {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .theme-option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 15px;
+            border-radius: 10px;
+            background: transparent;
+            border: 1px solid transparent;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .theme-option:hover {
+            background: rgba(0, 0, 0, 0.05);
+            border-color: var(--border-color);
+        }
+
+        .theme-option.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .theme-preview {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid var(--border-color);
+        }
+
+        .light-preview {
+            background: linear-gradient(135deg, #6366f1 50%, #06b6d4 50%);
+        }
+
+        .dark-preview {
+            background: linear-gradient(135deg, #0f172a 50%, #1e293b 50%);
+        }
+
+        .cyber-preview {
+            background: linear-gradient(135deg, #00f3ff 50%, #ff2a6d 50%);
+        }
+
+        .nature-preview {
+            background: linear-gradient(135deg, #10b981 50%, #3b82f6 50%);
+        }
+
+        .sunset-preview {
+            background: linear-gradient(135deg, #f59e0b 50%, #ef4444 50%);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 1rem;
+            font-family: 'Space Grotesk', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--neon-glow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            transition: var(--transition);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--bg-card);
+            min-width: 200px;
+            box-shadow: var(--shadow);
+            border-radius: 12px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            z-index: 100;
+            padding: 10px 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .nav-dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-content a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .dropdown-content a:hover {
+            background: var(--bg-secondary);
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-tagline {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Bubble Profile Photo */
+        .profile-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+        }
+
+        .profile-bubble {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            position: relative;
+            overflow: hidden;
+            animation: float 6s ease-in-out infinite;
+            box-shadow: 
+                inset 0 0 50px rgba(255, 255, 255, 0.3),
+                0 0 80px var(--primary-color);
+        }
+
+        .profile-bubble::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveBackground 20s linear infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(2deg); }
+            66% { transform: translateY(10px) rotate(-2deg); }
+        }
+
+        @keyframes moveBackground {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .profile-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 85%;
+            height: 85%;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 8px solid rgba(255, 255, 255, 0.1);
+            z-index: 2;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 3D Background */
+        #three-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            margin-bottom: 2.5rem;
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--neon-glow);
+        }
+
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+        }
+
+        .category-header h3 {
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .category-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            padding-top: 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .category-content.active {
+            max-height: 500px;
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background-color: var(--bg-secondary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 4px;
+            width: 0;
+            transition: width 1.5s ease;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            padding-left: 80px;
+        }
+
+        .timeline-date {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            box-shadow: var(--shadow);
+        }
+
+        .timeline-content {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            transform: translateX(10px);
+            box-shadow: var(--neon-glow);
+        }
+
+        /* Projects Section */
+        .project-filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 25px;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-color: transparent;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--neon-glow);
+        }
+
+        .project-image {
+            height: 200px;
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .project-tag {
+            background: var(--bg-secondary);
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 18px 25px;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            padding: 80px 0 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Mobile Nav */
+        .mobile-nav {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            padding: 20px;
+            display: none;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 999;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .mobile-nav.active {
+            display: flex;
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .hero-content {
+                gap: 3rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+            
+            .profile-container {
+                width: 350px;
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+
+            .settings-btn {
+                display: block;
+                margin-left: auto;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .profile-container {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .settings-container {
+                top: 90px;
+                right: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .settings-dropdown {
+                width: 200px;
+                right: -10px;
+            }
+        }
+
+        /* image zoom */
+        .image-box {
+        width: 100%;
+        height: 200px;
+        background:linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        overflow: hidden;
+        }
+
+        .image-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+        }
+
+        .image-box img:hover {
+        transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <!-- 3D Background -->
+    <div id="three-bg"></div>
+    
+    <!-- Settings Dropdown Container -->
+    
+    
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-code"></i> Raki<span>Raihan</span>
+                </a>
+                
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    
+                    <div class="nav-dropdown">
+                        <a href="#skills">Skills <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#skills"><i class="fas fa-code"></i> Frontend</a>
+                            <a href="#skills"><i class="fas fa-paint-brush"></i> UI/UX</a>
+                            <a href="#skills"><i class="fas fa-palette"></i> Graphic Design</a>
+                            <a href="#skills"><i class="fas fa-chart-line"></i> Data Analysis</a>
+                            <a href="#skills"><i class="fas fa-tools"></i> Tools</a>
+                        </div>
+                    </div>
+                    
+                    <a href="#experience">Experience</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+
+                    <!-- Settings Dropdown Container -->
+                    <div class="nav-links">
+                        <!-- Settings Button -->
+                        <button class="settings-btn" id="settingsBtn">
+                            <i class="fas fa-sliders-h"></i>
+                        </button>
+                        
+                        <!-- Settings Dropdown -->
+                        <div class="settings-dropdown" id="settingsDropdown">
+                            <!-- Language Selector -->
+                            <div class="settings-group">
+                                <h4><i class="fas fa-language"></i> Bahasa</h4>
+                                <div class="lang-selector">
+                                    <div class="lang-option active" data-lang="id">
+                                        <div class="lang-flag">🇮🇩</div>
+                                        <span>Indonesia</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="en">
+                                        <div class="lang-flag">🇬🇧</div>
+                                        <span>English</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="ja">
+                                        <div class="lang-flag">🇯🇵</div>
+                                        <span>日本語</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="zh">
+                                        <div class="lang-flag">🇨🇳</div>
+                                        <span>中文</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Theme Selector -->
+                            <div class="settings-group">
+                                <h4><i class="fas fa-palette"></i> Tema</h4>
+                                <div class="theme-selector">
+                                    <div class="theme-option active" data-theme="light">
+                                        <span>Light Mode</span>
+                                        <div class="theme-preview light-preview"></div>
+                                    </div>
+                                    <div class="theme-option" data-theme="dark">
+                                        <span>Dark Mode</span>
+                                        <div class="theme-preview dark-preview"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Custom Colors -->
+                            <div class="settings-group">
+                                <h4><i class="fas fa-fill-drip"></i> Warna Kustom</h4>
+                                <div class="theme-selector">
+                                    <div class="theme-option" data-theme="cyber">
+                                        <span>Cyber Theme</span>
+                                        <div class="theme-preview cyber-preview"></div>
+                                    </div>
+                                    <div class="theme-option" data-theme="nature">
+                                        <span>Nature Theme</span>
+                                        <div class="theme-preview nature-preview"></div>
+                                    </div>
+                                    <div class="theme-option" data-theme="sunset">
+                                        <span>Sunset Theme</span>
+                                        <div class="theme-preview sunset-preview"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile-settings">                        <!-- Settings Button -->
+                    <button class="settings-btn" id="settingsBtn">
+                        <i class="fas fa-sliders-h"></i>
+                    </button>
+                    
+                    <!-- Settings Dropdown -->
+                    <div class="settings-dropdown" id="settingsDropdown">
+                        <!-- Language Selector -->
+                        <div class="settings-group">
+                            <h4><i class="fas fa-language"></i> Bahasa</h4>
+                            <div class="lang-selector">
+                                <div class="lang-option active" data-lang="id">
+                                    <div class="lang-flag">🇮🇩</div>
+                                    <span>Indonesia</span>
+                                </div>
+                                <div class="lang-option" data-lang="en">
+                                    <div class="lang-flag">🇬🇧</div>
+                                    <span>English</span>
+                                </div>
+                                <div class="lang-option" data-lang="ja">
+                                    <div class="lang-flag">🇯🇵</div>
+                                    <span>日本語</span>
+                                </div>
+                                <div class="lang-option" data-lang="zh">
+                                    <div class="lang-flag">🇨🇳</div>
+                                    <span>中文</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Theme Selector -->
+                        <div class="settings-group">
+                            <h4><i class="fas fa-palette"></i> Tema</h4>
+                            <div class="theme-selector">
+                                <div class="theme-option active" data-theme="light">
+                                    <span>Light Mode</span>
+                                    <div class="theme-preview light-preview"></div>
+                                </div>
+                                <div class="theme-option" data-theme="dark">
+                                    <span>Dark Mode</span>
+                                    <div class="theme-preview dark-preview"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Custom Colors -->
+                        <div class="settings-group">
+                            <h4><i class="fas fa-fill-drip"></i> Warna Kustom</h4>
+                            <div class="theme-selector">
+                                <div class="theme-option" data-theme="cyber">
+                                    <span>Cyber Theme</span>
+                                    <div class="theme-preview cyber-preview"></div>
+                                </div>
+                                <div class="theme-option" data-theme="nature">
+                                    <span>Nature Theme</span>
+                                    <div class="theme-preview nature-preview"></div>
+                                </div>
+                                <div class="theme-option" data-theme="sunset">
+                                    <span>Sunset Theme</span>
+                                    <div class="theme-preview sunset-preview"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+            
+            <div class="mobile-nav" id="mobileNav">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1><span id="greeting">Halo, saya</span> <br>Raki Raihan</h1>
+                    <p class="hero-tagline" id="tagline">Web Developer, UI/UX Designer, Graphic Designer & Data Analyst yang passionate menciptakan solusi digital yang impactful.</p>
+                    
+                    <div class="hero-btns">
+                        <a href="#projects" class="btn">
+                            <i class="fas fa-eye"></i> <span id="viewPortfolio">Lihat Portfolio</span>
+                        </a>
+                        <a href="#" class="btn btn-outline" id="downloadCV">
+                            <i class="fas fa-download"></i> <span id="downloadText">Unduh CV</span>
+                        </a>
+                        <a href="#contact" class="btn btn-outline">
+                            <i class="fas fa-envelope"></i> <span id="contactMe">Hubungi Saya</span>
+                        </a>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <h3>3</h3>
+                            <p id="projectsDone">Proyek Selesai</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>1</h3>
+                            <p id="happyClients">Klien Puas</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>2+</h3>
+                            <p id="yearsExp">Tahun Pengalaman</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="profile-container">
+                    <div class="profile-bubble">
+                        <div class="profile-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=774&q=80" alt="Raki Raihan">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title" id="aboutTitle">Tentang Saya</h2>
+            <p class="section-subtitle" id="aboutSubtitle">Menggabungkan kreativitas desain dengan teknologi untuk menciptakan solusi yang bermakna</p>
+            
+            <div class="about-content">
+                <div>
+                    <p class="about-text" id="aboutText1">
+                        Saya adalah seorang profesional multidisiplin dengan spesialisasi dalam pengembangan web, desain UI/UX, desain grafis, dan analisis data. Dengan latar belakang yang unik ini, saya mampu melihat proyek dari berbagai perspektif dan menciptakan solusi yang tidak hanya indah secara visual tetapi juga fungsional dan data-driven.
+                    </p>
+                    <p class="about-text" id="aboutText2">
+                        Passion saya adalah menciptakan pengalaman digital yang intuitive, accessible, dan impactful. Saya percaya bahwa teknologi yang baik adalah teknologi yang melayani manusia dengan baik, dan itulah filosofi yang saya terapkan dalam setiap proyek.
+                    </p>
+                    <div class="hero-btns" style="margin-top: 2rem;">
+                        <a href="#contact" class="btn">
+                            <i class="fas fa-handshake"></i> <span id="collaborate">Mari Berkolaborasi</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="skills-container">
+                        <div class="skill-category">
+                            <div class="category-header">
+                                <h3><i class="fas fa-bullseye"></i> <span id="specialization">Spesialisasi</span></h3>
+                            </div>
+                            <div class="category-content active">
+                                <div class="skill-item">
+                                    <div class="skill-header">
+                                        <span>Web Development</span>
+                                        <span>95%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" data-width="95"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="skill-item">
+                                    <div class="skill-header">
+                                        <span>UI/UX Design</span>
+                                        <span>90%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" data-width="90"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="skill-item">
+                                    <div class="skill-header">
+                                        <span>Data Analysis</span>
+                                        <span>85%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" data-width="85"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title" id="skillsTitle">Keterampilan</h2>
+            <p class="section-subtitle" id="skillsSubtitle">Kompetensi teknis dan kreatif yang luas untuk menangani proyek kompleks</p>
+            
+            <div class="skills-container">
+                <!-- Frontend Skills -->
+                <div class="skill-category">
+                    <div class="category-header" id="frontendHeader">
+                        <h3><i class="fas fa-code"></i> <span class="skill-cat-title">Frontend Development</span></h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="category-content" id="frontendContent">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>HTML/CSS</span>
+                                <span>98%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="98"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>JavaScript</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="95"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>React/Next.js</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Three.js</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- UI/UX Skills -->
+                <div class="skill-category">
+                    <div class="category-header" id="uiuxHeader">
+                        <h3><i class="fas fa-paint-brush"></i> <span class="skill-cat-title">UI/UX Design</span></h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="category-content" id="uiuxContent">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Figma</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="95"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>User Research</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Prototyping</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="92"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Design Systems</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="88"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Data Analysis Skills -->
+                <div class="skill-category">
+                    <div class="category-header" id="dataHeader">
+                        <h3><i class="fas fa-chart-line"></i> <span class="skill-cat-title">Data Analysis</span></h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="category-content" id="dataContent">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Python</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>SQL</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Tableau</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="88"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Data Visualization</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="92"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title" id="experienceTitle">Pengalaman</h2>
+            <p class="section-subtitle" id="experienceSubtitle">Perjalanan profesional dan pencapaian karir</p>
+            
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        2022<br><span id="present">Sekarang</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 id="role1">Senior Full Stack Developer & Data Analyst</h3>
+                        <p class="timeline-company">TechVision Solutions</p>
+                        <p class="timeline-description" id="desc1">
+                            Memimpin pengembangan aplikasi web modern dengan integrasi analitik data real-time. Membangun dashboard interaktif untuk visualisasi data dan implementasi machine learning models untuk prediksi bisnis.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        2020<br><span>2022</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 id="role2">UI/UX Designer & Frontend Developer</h3>
+                        <p class="timeline-company">Digital Creative Agency</p>
+                        <p class="timeline-description" id="desc2">
+                            Merancang dan mengembangkan antarmuka pengguna untuk berbagai klien startup dan enterprise. Meningkatkan engagement user sebesar 40% melalui desain yang data-driven dan user-centric.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        2018<br><span>2020</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 id="role3">Web Developer & Graphic Designer</h3>
+                        <p class="timeline-company">Freelance & Startups</p>
+                        <p class="timeline-description" id="desc3">
+                            Mengembangkan website dan aplikasi mobile untuk berbagai klien. Membuat identitas visual dan material marketing yang konsisten untuk meningkatkan brand awareness.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title" id="projectsTitle">Portfolio</h2>
+            <p class="section-subtitle" id="projectsSubtitle">Karya terbaik yang menunjukkan kemampuan multidisiplin</p>
+            
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all"><span id="allProjects">Semua Proyek</span></button>
+                <button class="filter-btn" data-filter="web"><span id="webProjects">Web Development</span></button>
+                <button class="filter-btn" data-filter="uiux"><span id="uiuxProjects">UI/UX Design</span></button>
+                <button class="filter-btn" data-filter="graphic"><span id="graphicProjects">Desain Grafis</span></button>
+                <button class="filter-btn" data-filter="data"><span id="dataProjects">Analisis Data</span></button>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Project 1 "Web" -->
+                    <!-- Web 1 -->
+                    <div class="project-card" data-category="web">
+                        <div class="project-image">
+                            <div class="image-box">
+                                <img src="assest/img/projek/aquapedia.png" alt="Aquapedia">
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 id="project1Title">Informasi Ikan Hias</h3><br>
+                            <p id="project1Desc">Platform Informasi/Edukasi ikan hias dengan fitur real-time analytics, rekomendasi produk AI, dan checkout yang seamless.</p>
+                            
+                            <div class="project-tags">
+                                <span class="project-tag"><i class="fab fa-php"></i> PHP</span>
+                                <span class="project-tag"><i class="fab fa-js"></i> js</span>
+                                <span class="project-tag"><i class="fab fa-css3-alt"></i> CSS</span>
+                                <span class="project-tag"><i class="fab fa-bootstrap"></i> Bootstrap</span>
+                                <span class="project-tag"><i class="fab fa-database"></i> SQL</span>
+                            </div>
+                            
+                            <div class="project-links" style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+                                <a href="https://aquapedia.my.id" target="_blank" rel="" class="project-link" style="color: var(--primary-color); text-decoration: none; display: flex; align-items: center; gap: 5px;">
+                                    <!--<i class="fas fa-external-link-alt"></i> <span id="liveDemo">Live Demo</span>-->
+                                    <i class="fas fa-external-link-alt"></i> <span id="liveDemo">Live Demo</span>
+                                </a>
+                                <a href="#" target="_blank" rel="noopener noreferrer" class="project-link" style="color: var(--primary-color); text-decoration: none; display: flex; align-items: center; gap: 5px;">
+                                    <i class="fab fa-github-alt"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Web 2 -->
+                    <div class="project-card" data-category="web">
+                        <div class="project-image">
+                            <div class="image-box" style="background:linear-gradient(135deg, var(--primary-color), var(--secondary-color));">
+                                <img src="assest/img/projek/raifstore.png" alt="RafiStore">
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 id="project2Title">Toko Online Penjualan</h3><br>
+                            <p id="project2Desc">Toko Online Frozen Food untuk UKM dengan fitur manajemen Barang, laporan penjualan, dan analisis pelanggan.</p>
+                            
+                            <div class="project-tags">
+                                <span class="project-tag"><i class="fab fa-php"></i> PHP</span>
+                                <span class="project-tag"><i class="fab fa-js"></i> js</span>
+                                <span class="project-tag"><i class="fab fa-css3-alt"></i> CSS</span>
+                                <span class="project-tag"><i class="fab fa-bootstrap"></i> Bootstrap</span>
+                                <span class="project-tag"><i class="fab fa-database"></i> SQL</span>
+                            </div>
+                            
+                            <div class="project-links" style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+                                <a href="#" target="_blank" rel="" class="project-link" style="color: var(--primary-color); text-decoration: none; display: flex; align-items: center; gap: 5px;">
+                                    <!--<i class="fas fa-external-link-alt"></i> <span id="liveDemo">Live Demo</span>-->
+                                    <i class="fas fa-external-link-alt"></i> <span id="liveDemo">Live Demo</span>
+                                </a>
+                                <a href="#" target="_blank" rel="noopener noreferrer" class="project-link" style="color: var(--primary-color); text-decoration: none; display: flex; align-items: center; gap: 5px;">
+                                    <i class="fab fa-github-alt"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Web 3 -->
+                    <div class="project-card" data-category="web">
+                        <div class="project-image">
+                            <div class="image-box" style="background:linear-gradient(135deg, var(--primary-color), var(--secondary-color));">
+                                <img src="assest/img/projek/portofolio.png" alt="MyPortofolio">
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 id="project2Title">My Portofolio</h3><br>
+                            <p id="project2Desc">Portofolio Developer</p>
+                            
+                            <div class="project-tags">
+                                <span class="project-tag"><i class="fab fa-php"></i> PHP</span>
+                                <span class="project-tag"><i class="fab fa-js"></i> js</span>
+                                <span class="project-tag"><i class="fab fa-css3-alt"></i> CSS</span>
+                                <span class="project-tag"><i class="fab fa-html5"></i> HTML</span>
+                                <span class="project-tag"><i class="fab fa-node-js"></i> Node.Js</span>
+                            </div>
+                            
+                            <div class="project-links" style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+                                <a href="#" target="_blank" rel="" class="project-link" style="color: var(--primary-color); text-decoration: none; display: flex; align-items: center; gap: 5px;">
+                                    <!--<i class="fas fa-external-link-alt"></i> <span id="liveDemo">Live Demo</span>-->
+                                    <i class="fas fa-external-link-alt"></i> <span id="liveDemo">Live Demo</span>
+                                </a>
+                                <a href="#" target="_blank" rel="noopener noreferrer" class="project-link" style="color: var(--primary-color); text-decoration: none; display: flex; align-items: center; gap: 5px;">
+                                    <i class="fab fa-github-alt"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div> 
+
+                    <!-- Web # -->
+                    <!--<div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <div style="width:100%;height:100%;background:linear-gradient(135deg, var(--primary-color), var(--secondary-color));"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 id="project1Title">E-commerce Modern dengan React</h3>
+                        <p id="project1Desc">Platform e-commerce dengan fitur real-time analytics, rekomendasi produk AI, dan checkout yang seamless.</p>
+                        
+                        <div class="project-tags">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Node.js</span>
+                            <span class="project-tag">MongoDB</span>
+                            <span class="project-tag">Stripe API</span>
+                        </div>
+                        
+                        <div class="project-links" style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+                            <a href="#" class="project-link" style="color: var(--primary-color); text-decoration: none; display: flex; align-items: center; gap: 5px;">
+                                <i class="fas fa-external-link-alt"></i> <span id="liveDemo">Live Demo</span>
+                            </a>
+                            <a href="#" class="project-link" style="color: var(--primary-color); text-decoration: none; display: flex; align-items: center; gap: 5px;">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>-->
+                
+                <!-- Project 2 "Analisis Data" -->
+                    <!--<div class="project-card" data-category="data">
+                    <div class="project-image">
+                        <div style="width:100%;height:100%;background:linear-gradient(135deg, var(--secondary-color), var(--accent-color));"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 id="project2Title">Dashboard Analitik Real-time</h3>
+                        <p id="project2Desc">Dashboard interaktif untuk visualisasi data dengan predictive analytics dan reporting otomatis.</p>
+                        
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">D3.js</span>
+                            <span class="project-tag">Tableau</span>
+                            <span class="project-tag">SQL</span>
+                        </div>
+                        
+                        <div class="project-links" style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+                            <a href="#" class="project-link" style="color: var(--primary-color); text-decoration: none; display: flex; align-items: center; gap: 5px;">
+                                <i class="fas fa-external-link-alt"></i> <span id="viewDashboard">View Dashboard</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>-->
+                
+                <!-- Project 3 "Desain UI/UX" -->
+                    <!--<div class="project-card" data-category="uiux">
+                    <div class="project-image">
+                        <div style="width:100%;height:100%;background:linear-gradient(135deg, var(--accent-color), var(--primary-light));"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 id="project3Title">Aplikasi Fintech Mobile</h3>
+                        <p id="project3Desc">Desain UI/UX untuk aplikasi mobile fintech dengan fokus pada user experience dan security.</p>
+                        
+                        <div class="project-tags">
+                            <span class="project-tag">Figma</span>
+                            <span class="project-tag">User Research</span>
+                            <span class="project-tag">Prototyping</span>
+                            <span class="project-tag">Usability Testing</span>
+                        </div>
+                        
+                        <div class="project-links" style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+                            <a href="#" class="project-link" style="color: var(--primary-color); text-decoration: none; display: flex; align-items: center; gap: 5px;">
+                                <i class="fas fa-file-alt"></i> <span id="caseStudy">Case Study</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" id="contactTitle">Hubungi Saya</h2>
+            <p class="section-subtitle" id="contactSubtitle">Mari berdiskusi tentang proyek, kolaborasi, atau peluang karir</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div style="margin-bottom: 3rem;">
+                        <h3 style="margin-bottom: 1.5rem;" id="getInTouch">Hubungi Saya</h3>
+                        
+                        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div style="width: 50px; height: 50px; border-radius: 12px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); display: flex; align-items: center; justify-content: center; color: white;">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4>Email</h4>
+                                    <p style="color: var(--text-secondary);">hello@rakiraihan.com</p>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div style="width: 50px; height: 50px; border-radius: 12px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); display: flex; align-items: center; justify-content: center; color: white;">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h4>Telepon</h4>
+                                    <p style="color: var(--text-secondary);">+62 812 3456 7890</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 style="margin-bottom: 1.5rem;" id="followMe">Follow Saya</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-behance"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <input type="text" id="nameInput" placeholder="Nama Lengkap" required>
+                        <input type="email" id="emailInput" placeholder="Alamat Email" required>
+                        <input type="text" id="subjectInput" placeholder="Subjek" required>
+                        <textarea rows="5" id="messageInput" placeholder="Pesan Anda" required></textarea>
+                        <button type="submit" class="btn" style="width: 100%; justify-content: center;">
+                            <i class="fas fa-paper-plane"></i> <span id="sendMessage">Kirim Pesan</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; margin-bottom: 2rem;">
+                <div>
+                    <div class="logo" style="font-size: 1.5rem;">
+                        <i class="fas fa-code"></i> Raki<span>Raihan</span>
+                    </div>
+                    <p style="color: var(--text-secondary); margin-top: 10px;" id="footerTagline">
+                        Menciptakan pengalaman digital yang bermakna melalui teknologi dan desain.
+                    </p>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-behance"></i></a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; padding-top: 30px; border-top: 1px solid var(--border-color); color: var(--text-secondary);">
+                <p id="copyright">&copy; 2023 Raki Raihan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Multi-language Content
+        const translations = {
+            id: {
+                greeting: "Halo, saya",
+                tagline: "Web Developer, UI/UX Designer, Graphic Designer & Data Analyst yang passionate menciptakan solusi digital yang impactful.",
+                viewPortfolio: "Lihat Portfolio",
+                downloadText: "Unduh CV",
+                contactMe: "Hubungi Saya",
+                projectsDone: "Proyek Selesai",
+                happyClients: "Klien Puas",
+                yearsExp: "Tahun Pengalaman",
+                aboutTitle: "Tentang Saya",
+                aboutSubtitle: "Menggabungkan kreativitas desain dengan teknologi untuk menciptakan solusi yang bermakna",
+                aboutText1: "Saya adalah seorang profesional multidisiplin dengan spesialisasi dalam pengembangan web, desain UI/UX, desain grafis, dan analisis data. Dengan latar belakang yang unik ini, saya mampu melihat proyek dari berbagai perspektif dan menciptakan solusi yang tidak hanya indah secara visual tetapi juga fungsional dan data-driven.",
+                aboutText2: "Passion saya adalah menciptakan pengalaman digital yang intuitive, accessible, dan impactful. Saya percaya bahwa teknologi yang baik adalah teknologi yang melayani manusia dengan baik, dan itulah filosofi yang saya terapkan dalam setiap proyek.",
+                collaborate: "Mari Berkolaborasi",
+                specialization: "Spesialisasi",
+                skillsTitle: "Keterampilan",
+                skillsSubtitle: "Kompetensi teknis dan kreatif yang luas untuk menangani proyek kompleks",
+                frontendDev: "Frontend Development",
+                uiuxDesign: "UI/UX Design",
+                dataAnalysis: "Analisis Data",
+                experienceTitle: "Pengalaman",
+                experienceSubtitle: "Perjalanan profesional dan pencapaian karir",
+                present: "Sekarang",
+                role1: "Senior Full Stack Developer & Data Analyst",
+                desc1: "Memimpin pengembangan aplikasi web modern dengan integrasi analitik data real-time. Membangun dashboard interaktif untuk visualisasi data dan implementasi machine learning models untuk prediksi bisnis.",
+                role2: "UI/UX Designer & Frontend Developer",
+                desc2: "Merancang dan mengembangkan antarmuka pengguna untuk berbagai klien startup dan enterprise. Meningkatkan engagement user sebesar 40% melalui desain yang data-driven dan user-centric.",
+                role3: "Web Developer & Graphic Designer",
+                desc3: "Mengembangkan website dan aplikasi mobile untuk berbagai klien. Membuat identitas visual dan material marketing yang konsisten untuk meningkatkan brand awareness.",
+                projectsTitle: "Portfolio",
+                projectsSubtitle: "Karya terbaik yang menunjukkan kemampuan multidisiplin",
+                allProjects: "Semua Proyek",
+                webProjects: "Web Development",
+                uiuxProjects: "UI/UX Design",
+                graphicProjects: "Desain Grafis",
+                dataProjects: "Analisis Data",
+                project1Title: "E-commerce Modern dengan React",
+                project1Desc: "Platform e-commerce dengan fitur real-time analytics, rekomendasi produk AI, dan checkout yang seamless.",
+                project2Title: "Dashboard Analitik Real-time",
+                project2Desc: "Dashboard interaktif untuk visualisasi data dengan predictive analytics dan reporting otomatis.",
+                project3Title: "Aplikasi Fintech Mobile",
+                project3Desc: "Desain UI/UX untuk aplikasi mobile fintech dengan fokus pada user experience dan security.",
+                liveDemo: "Live Demo",
+                viewDashboard: "View Dashboard",
+                caseStudy: "Case Study",
+                contactTitle: "Hubungi Saya",
+                contactSubtitle: "Mari berdiskusi tentang proyek, kolaborasi, atau peluang karir",
+                getInTouch: "Hubungi Saya",
+                followMe: "Follow Saya",
+                sendMessage: "Kirim Pesan",
+                footerTagline: "Menciptakan pengalaman digital yang bermakna melalui teknologi dan desain.",
+                copyright: "© 2023 Raki Raihan. Hak cipta dilindungi."
+            },
+            en: {
+                greeting: "Hello, I'm",
+                tagline: "Web Developer, UI/UX Designer, Graphic Designer & Data Analyst passionate about creating impactful digital solutions.",
+                viewPortfolio: "View Portfolio",
+                downloadText: "Download CV",
+                contactMe: "Contact Me",
+                projectsDone: "Projects Done",
+                happyClients: "Happy Clients",
+                yearsExp: "Years Experience",
+                aboutTitle: "About Me",
+                aboutSubtitle: "Combining design creativity with technology to create meaningful solutions",
+                aboutText1: "I am a multidisciplinary professional specializing in web development, UI/UX design, graphic design, and data analysis. With this unique background, I can view projects from multiple perspectives and create solutions that are not only visually appealing but also functional and data-driven.",
+                aboutText2: "My passion is creating intuitive, accessible, and impactful digital experiences. I believe that good technology is technology that serves people well, and that's the philosophy I apply to every project.",
+                collaborate: "Let's Collaborate",
+                specialization: "Specialization",
+                skillsTitle: "Skills",
+                skillsSubtitle: "Broad technical and creative competencies to handle complex projects",
+                frontendDev: "Frontend Development",
+                uiuxDesign: "UI/UX Design",
+                dataAnalysis: "Data Analysis",
+                experienceTitle: "Experience",
+                experienceSubtitle: "Professional journey and career achievements",
+                present: "Present",
+                role1: "Senior Full Stack Developer & Data Analyst",
+                desc1: "Leading the development of modern web applications with real-time data analytics integration. Building interactive dashboards for data visualization and implementing machine learning models for business prediction.",
+                role2: "UI/UX Designer & Frontend Developer",
+                desc2: "Designing and developing user interfaces for various startup and enterprise clients. Increased user engagement by 40% through data-driven and user-centric design.",
+                role3: "Web Developer & Graphic Designer",
+                desc3: "Developing websites and mobile applications for various clients. Creating consistent visual identities and marketing materials to enhance brand awareness.",
+                projectsTitle: "Portfolio",
+                projectsSubtitle: "Best works showcasing multidisciplinary abilities",
+                allProjects: "All Projects",
+                webProjects: "Web Development",
+                uiuxProjects: "UI/UX Design",
+                graphicProjects: "Graphic Design",
+                dataProjects: "Data Analysis",
+                project1Title: "Modern E-commerce with React",
+                project1Desc: "E-commerce platform with real-time analytics features, AI product recommendations, and seamless checkout.",
+                project2Title: "Real-time Analytics Dashboard",
+                project2Desc: "Interactive dashboard for data visualization with predictive analytics and automated reporting.",
+                project3Title: "Fintech Mobile Application",
+                project3Desc: "UI/UX design for fintech mobile application focusing on user experience and security.",
+                liveDemo: "Live Demo",
+                viewDashboard: "View Dashboard",
+                caseStudy: "Case Study",
+                contactTitle: "Contact Me",
+                contactSubtitle: "Let's discuss projects, collaboration, or career opportunities",
+                getInTouch: "Get in Touch",
+                followMe: "Follow Me",
+                sendMessage: "Send Message",
+                footerTagline: "Creating meaningful digital experiences through technology and design.",
+                copyright: "© 2023 Raki Raihan. All rights reserved."
+            },
+            ja: {
+                greeting: "こんにちは、私は",
+                tagline: "Web開発者、UI/UXデザイナー、グラフィックデザイナー、データアナリスト。影響力のあるデジタルソリューションの創造に情熱を持っています。",
+                viewPortfolio: "ポートフォリオを見る",
+                downloadText: "履歴書をダウンロード",
+                contactMe: "お問い合わせ",
+                projectsDone: "完了プロジェクト",
+                happyClients: "満足したクライアント",
+                yearsExp: "年の経験",
+                aboutTitle: "私について",
+                aboutSubtitle: "デザインの創造性と技術を組み合わせて意味のあるソリューションを創出",
+                aboutText1: "私は、Web開発、UI/UXデザイン、グラフィックデザイン、データ分析を専門とする多分野のプロフェッショナルです。このユニークな背景により、複数の視点からプロジェクトを見ることができ、視覚的に美しいだけでなく、機能性がありデータ駆動型のソリューションを創出できます。",
+                aboutText2: "私の情熱は、直感的でアクセスしやすく、影響力のあるデジタル体験を創造することです。優れたテクノロジーとは、人々をよくサービスするテクノロジーであると信じており、それがすべてのプロジェクトに適用する哲学です。",
+                collaborate: "コラボレーションしましょう",
+                specialization: "専門分野",
+                skillsTitle: "スキル",
+                skillsSubtitle: "複雑なプロジェクトに対応する幅広い技術的・創造的コンピテンシー",
+                frontendDev: "フロントエンド開発",
+                uiuxDesign: "UI/UXデザイン",
+                dataAnalysis: "データ分析",
+                experienceTitle: "経験",
+                experienceSubtitle: "専門的なキャリアの歩みと成果",
+                present: "現在",
+                role1: "シニアフルスタック開発者＆データアナリスト",
+                desc1: "リアルタイムデータ分析統合を備えた現代的なWebアプリケーションの開発を主導。データ可視化のためのインタラクティブなダッシュボードの構築とビジネス予測のための機械学習モデルの実装。",
+                role2: "UI/UXデザイナー＆フロントエンド開発者",
+                desc2: "様々なスタートアップおよび企業クライアント向けユーザーインターフェースの設計と開発。データ駆動型でユーザー中心のデザインによりユーザーエンゲージメントを40％向上。",
+                role3: "Web開発者＆グラフィックデザイナー",
+                desc3: "様々なクライアント向けWebサイトおよびモバイルアプリケーションの開発。ブランド認知度向上のための一貫した視覚的アイデンティティとマーケティング資料の作成。",
+                projectsTitle: "ポートフォリオ",
+                projectsSubtitle: "多分野の能力を示すベストワーク",
+                allProjects: "全てのプロジェクト",
+                webProjects: "Web開発",
+                uiuxProjects: "UI/UXデザイン",
+                graphicProjects: "グラフィックデザイン",
+                dataProjects: "データ分析",
+                project1Title: "Reactを使用したモダンなEコマース",
+                project1Desc: "リアルタイム分析機能、AI製品推奨、シームレスなチェックアウトを備えたEコマースプラットフォーム。",
+                project2Title: "リアルタイム分析ダッシュボード",
+                project2Desc: "予測分析と自動レポートを備えたデータ可視化のためのインタラクティブなダッシュボード。",
+                project3Title: "フィンテックモバイルアプリケーション",
+                project3Desc: "ユーザーエクスペリエンスとセキュリティに焦点を当てたフィンテックモバイルアプリケーションのUI/UXデザイン。",
+                liveDemo: "ライブデモ",
+                viewDashboard: "ダッシュボードを見る",
+                caseStudy: "ケーススタディ",
+                contactTitle: "お問い合わせ",
+                contactSubtitle: "プロジェクト、コラボレーション、またはキャリアの機会について話し合いましょう",
+                getInTouch: "お問い合わせ",
+                followMe: "フォローする",
+                sendMessage: "メッセージを送信",
+                footerTagline: "技術とデザインを通じて意味のあるデジタル体験を創造します。",
+                copyright: "© 2023 ラキ・ライハン。無断複写・転載を禁じます。"
+            },
+            zh: {
+                greeting: "你好，我是",
+                tagline: "网页开发人员、UI/UX设计师、平面设计师和数据分析师，热衷于创建有影响力的数字解决方案。",
+                viewPortfolio: "查看作品集",
+                downloadText: "下载简历",
+                contactMe: "联系我",
+                projectsDone: "完成项目",
+                happyClients: "满意客户",
+                yearsExp: "年经验",
+                aboutTitle: "关于我",
+                aboutSubtitle: "结合设计创意与技术，创造有意义的解决方案",
+                aboutText1: "我是一位多学科专业人士，专注于网页开发、UI/UX设计、平面设计和数据分析。凭借这一独特背景，我能够从多个角度审视项目，并创建不仅视觉吸引人，而且功能性和数据驱动的解决方案。",
+                aboutText2: "我的热情在于创造直观、可访问和有影响力的数字体验。我相信好的技术是能够很好地服务于人们的技术，这就是我应用于每个项目的理念。",
+                collaborate: "让我们合作",
+                specialization: "专业领域",
+                skillsTitle: "技能",
+                skillsSubtitle: "广泛的技术和创意能力，以处理复杂项目",
+                frontendDev: "前端开发",
+                uiuxDesign: "UI/UX设计",
+                dataAnalysis: "数据分析",
+                experienceTitle: "经验",
+                experienceSubtitle: "专业历程和职业成就",
+                present: "至今",
+                role1: "高级全栈开发人员与数据分析师",
+                desc1: "领导具有实时数据分析集成的现代网页应用程序开发。构建用于数据可视化的交互式仪表板，并实施用于业务预测的机器学习模型。",
+                role2: "UI/UX设计师与前端开发人员",
+                desc2: "为各种初创企业和企业客户设计和开发用户界面。通过数据驱动和以用户为中心的设计，将用户参与度提高了40%。",
+                role3: "网页开发人员与平面设计师",
+                desc3: "为各种客户开发网站和移动应用程序。创建一致的视觉标识和营销材料，以增强品牌知名度。",
+                projectsTitle: "作品集",
+                projectsSubtitle: "展示多学科能力的最佳作品",
+                allProjects: "所有项目",
+                webProjects: "网页开发",
+                uiuxProjects: "UI/UX设计",
+                graphicProjects: "平面设计",
+                dataProjects: "数据分析",
+                project1Title: "使用React的现代电子商务",
+                project1Desc: "具有实时分析功能、AI产品推荐和无缝结账的电子商务平台。",
+                project2Title: "实时分析仪表板",
+                project2Desc: "具有预测分析和自动报告的交互式数据可视化仪表板。",
+                project3Title: "金融科技移动应用程序",
+                project3Desc: "专注于用户体验和安全性的金融科技移动应用程序UI/UX设计。",
+                liveDemo: "现场演示",
+                viewDashboard: "查看仪表板",
+                caseStudy: "案例研究",
+                contactTitle: "联系我",
+                contactSubtitle: "让我们讨论项目、合作或职业机会",
+                getInTouch: "取得联系",
+                followMe: "关注我",
+                sendMessage: "发送消息",
+                footerTagline: "通过技术和设计创造有意义的数字体验。",
+                copyright: "© 2023 拉基·拉伊汉。保留所有权利。"
+            }
+        };
+
+        // Current language and theme
+        let currentLang = 'id';
+        let currentTheme = 'light';
+
+        // Settings Dropdown Toggle
+        const settingsBtn = document.getElementById('settingsBtn');
+        const settingsDropdown = document.getElementById('settingsDropdown');
+        
+        settingsBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            settingsDropdown.classList.toggle('active');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!settingsDropdown.contains(e.target) && !settingsBtn.contains(e.target)) {
+                settingsDropdown.classList.remove('active');
+            }
+        });
+
+        // Language Switcher
+        document.querySelectorAll('.lang-option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Update active option
+                document.querySelectorAll('.lang-option').forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Update language
+                currentLang = this.getAttribute('data-lang');
+                updateContent();
+            });
+        });
+
+        // Theme Switcher
+        document.querySelectorAll('.theme-option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove all theme classes
+                document.body.classList.remove('light-theme', 'dark-theme', 'cyber-theme', 'nature-theme', 'sunset-theme');
+                
+                // Add selected theme
+                const theme = this.getAttribute('data-theme');
+                document.body.classList.add(theme + '-theme');
+                currentTheme = theme;
+                
+                // Update active option in both groups
+                document.querySelectorAll('.theme-option').forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+                
+                // If a theme is selected from custom colors, ensure dark/light mode options are not active
+                if (theme === 'cyber' || theme === 'nature' || theme === 'sunset') {
+                    document.querySelectorAll('.theme-option[data-theme="light"], .theme-option[data-theme="dark"]').forEach(opt => {
+                        opt.classList.remove('active');
+                    });
+                }
+            });
+        });
+
+        // Update content based on language
+        function updateContent() {
+            const langData = translations[currentLang];
+            
+            // Update all elements with data
+            document.getElementById('greeting').textContent = langData.greeting;
+            document.getElementById('tagline').textContent = langData.tagline;
+            document.getElementById('viewPortfolio').textContent = langData.viewPortfolio;
+            document.getElementById('downloadText').textContent = langData.downloadText;
+            document.getElementById('contactMe').textContent = langData.contactMe;
+            document.getElementById('projectsDone').textContent = langData.projectsDone;
+            document.getElementById('happyClients').textContent = langData.happyClients;
+            document.getElementById('yearsExp').textContent = langData.yearsExp;
+            document.getElementById('aboutTitle').textContent = langData.aboutTitle;
+            document.getElementById('aboutSubtitle').textContent = langData.aboutSubtitle;
+            document.getElementById('aboutText1').textContent = langData.aboutText1;
+            document.getElementById('aboutText2').textContent = langData.aboutText2;
+            document.getElementById('collaborate').textContent = langData.collaborate;
+            document.getElementById('specialization').textContent = langData.specialization;
+            document.getElementById('skillsTitle').textContent = langData.skillsTitle;
+            document.getElementById('skillsSubtitle').textContent = langData.skillsSubtitle;
+            
+            // Update skill category titles
+            document.querySelectorAll('.skill-cat-title').forEach((el, index) => {
+                if (index === 0) el.textContent = langData.frontendDev;
+                else if (index === 1) el.textContent = langData.uiuxDesign;
+                else if (index === 2) el.textContent = langData.dataAnalysis;
+            });
+            
+            document.getElementById('experienceTitle').textContent = langData.experienceTitle;
+            document.getElementById('experienceSubtitle').textContent = langData.experienceSubtitle;
+            document.getElementById('present').textContent = langData.present;
+            document.getElementById('role1').textContent = langData.role1;
+            document.getElementById('desc1').textContent = langData.desc1;
+            document.getElementById('role2').textContent = langData.role2;
+            document.getElementById('desc2').textContent = langData.desc2;
+            document.getElementById('role3').textContent = langData.role3;
+            document.getElementById('desc3').textContent = langData.desc3;
+            document.getElementById('projectsTitle').textContent = langData.projectsTitle;
+            document.getElementById('projectsSubtitle').textContent = langData.projectsSubtitle;
+            document.getElementById('allProjects').textContent = langData.allProjects;
+            document.getElementById('webProjects').textContent = langData.webProjects;
+            document.getElementById('uiuxProjects').textContent = langData.uiuxProjects;
+            document.getElementById('graphicProjects').textContent = langData.graphicProjects;
+            document.getElementById('dataProjects').textContent = langData.dataProjects;
+            document.getElementById('project1Title').textContent = langData.project1Title;
+            document.getElementById('project1Desc').textContent = langData.project1Desc;
+            document.getElementById('project2Title').textContent = langData.project2Title;
+            document.getElementById('project2Desc').textContent = langData.project2Desc;
+            document.getElementById('project3Title').textContent = langData.project3Title;
+            document.getElementById('project3Desc').textContent = langData.project3Desc;
+            document.getElementById('liveDemo').textContent = langData.liveDemo;
+            document.getElementById('viewDashboard').textContent = langData.viewDashboard;
+            document.getElementById('caseStudy').textContent = langData.caseStudy;
+            document.getElementById('contactTitle').textContent = langData.contactTitle;
+            document.getElementById('contactSubtitle').textContent = langData.contactSubtitle;
+            document.getElementById('getInTouch').textContent = langData.getInTouch;
+            document.getElementById('followMe').textContent = langData.followMe;
+            document.getElementById('sendMessage').textContent = langData.sendMessage;
+            document.getElementById('footerTagline').textContent = langData.footerTagline;
+            document.getElementById('copyright').textContent = langData.copyright;
+        }
+
+        // Initialize 3D Background
+        function initThreeJS() {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.getElementById('three-bg').appendChild(renderer.domElement);
+
+            // Create floating particles
+            const particlesGeometry = new THREE.BufferGeometry();
+            const particlesCount = 500;
+            const posArray = new Float32Array(particlesCount * 3);
+
+            for(let i = 0; i < particlesCount * 3; i++) {
+                posArray[i] = (Math.random() - 0.5) * 10;
+            }
+
+            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+            // Particle color based on theme
+            let particleColor;
+            if (currentTheme === 'dark-theme') particleColor = 0x818cf8;
+            else if (currentTheme === 'cyber-theme') particleColor = 0x00f3ff;
+            else if (currentTheme === 'nature-theme') particleColor = 0x10b981;
+            else if (currentTheme === 'sunset-theme') particleColor = 0xf59e0b;
+            else particleColor = 0x6366f1;
+
+            const particlesMaterial = new THREE.PointsMaterial({
+                size: 0.02,
+                color: particleColor,
+                transparent: true,
+                opacity: 0.6
+            });
+
+            const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+            scene.add(particlesMesh);
+
+            camera.position.z = 5;
+
+            // Animation
+            function animate() {
+                requestAnimationFrame(animate);
+                particlesMesh.rotation.x += 0.001;
+                particlesMesh.rotation.y += 0.001;
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mobileNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    mobileNav.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+
+        // Skills Dropdown
+        const skillHeaders = document.querySelectorAll('.category-header');
+        
+        skillHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const contentId = header.id.replace('Header', 'Content');
+                const content = document.getElementById(contentId);
+                const icon = header.querySelector('.fa-chevron-down');
+                
+                content.classList.toggle('active');
+                icon.style.transform = content.classList.contains('active') 
+                    ? 'rotate(180deg)' 
+                    : 'rotate(0deg)';
+            });
+        });
+
+        // Project Filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                // Filter projects
+                projectCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Animate skill bars on scroll
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            
+            skillBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                bar.style.width = '0%';
+                
+                // Trigger animation when element is in viewport
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            setTimeout(() => {
+                                bar.style.width = width + '%';
+                            }, 300);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                observer.observe(bar.parentElement.parentElement);
+            });
+        }
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('nameInput').value,
+                email: document.getElementById('emailInput').value,
+                subject: document.getElementById('subjectInput').value,
+                message: document.getElementById('messageInput').value
+            };
+            
+            // In a real implementation, you would send this to a server
+            console.log('Form submitted:', formData);
+            
+            // Show success message
+            alert(currentLang === 'id' ? 'Pesan berhasil dikirim! Saya akan membalas dalam 24 jam.' :
+                  currentLang === 'en' ? 'Message sent successfully! I will reply within 24 hours.' :
+                  currentLang === 'ja' ? 'メッセージが送信されました！24時間以内に返信いたします。' :
+                  '消息发送成功！我将在24小时内回复。');
+            
+            // Reset form
+            contactForm.reset();
+        });
+
+        // Download CV button
+        const downloadCVBtn = document.getElementById('downloadCV');
+        
+        downloadCVBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // In a real implementation, this would download the CV file
+            const message = currentLang === 'id' ? 'CV sedang diunduh...' :
+                          currentLang === 'en' ? 'Downloading CV...' :
+                          currentLang === 'ja' ? '履歴書をダウンロード中...' :
+                          '正在下载简历...';
+            
+            alert(message);
+            
+            // Simulate download
+            setTimeout(() => {
+                const successMessage = currentLang === 'id' ? 'CV berhasil diunduh!' :
+                                    currentLang === 'en' ? 'CV downloaded successfully!' :
+                                    currentLang === 'ja' ? '履歴書がダウンロードされました！' :
+                                    '简历下载成功！';
+                alert(successMessage);
+            }, 1000);
+        });
+
+        // Scroll animations
+        const fadeElements = document.querySelectorAll('.about, .skills, .experience, .projects, .contact');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            // Initialize 3D background
+            initThreeJS();
+            
+            // Animate skill bars
+            animateSkillBars();
+            
+            // Initialize scroll animations
+            fadeInOnScroll();
+            
+            // Make all skill categories expanded by default
+            const skillContents = document.querySelectorAll('.category-content');
+            skillContents.forEach(content => {
+                content.classList.add('active');
+                const icon = content.parentElement.querySelector('.fa-chevron-down');
+                if (icon) icon.style.transform = 'rotate(180deg)';
+            });
+        });
+
+        // Update animations on scroll
+        window.addEventListener('scroll', fadeInOnScroll);
+
+        // Update navbar on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(20px)';
+                if (document.body.classList.contains('dark-theme') || 
+                    document.body.classList.contains('cyber-theme') || 
+                    document.body.classList.contains('nature-theme') || 
+                    document.body.classList.contains('sunset-theme')) {
+                    header.style.background = 'var(--glass-bg)';
+                }
+            } else {
+                header.style.background = 'var(--glass-bg)';
+            }
+        });
+    </script>
+</body>
+</html>
