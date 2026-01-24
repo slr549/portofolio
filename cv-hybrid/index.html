@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Hybrid Builder - Modern & Professional</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-file-alt"></i>
+                <h1>CV<span>Pro</span></h1>
+            </div>
+            
+            <div class="nav-controls">
+                <div class="language-selector">
+                    <select id="languageSelect">
+                        <option value="id">🇮🇩 Indonesia</option>
+                        <option value="en">🇺🇸 English</option>
+                        <option value="jp">🇯🇵 日本語</option>
+                        <option value="cn">🇨🇳 中文</option>
+                        <option value="bilingual">🌐 Bilingual</option>
+                    </select>
+                </div>
+                
+                <button class="btn-theme" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                
+                <button class="btn-template" id="templateBtn">
+                    <i class="fas fa-palette"></i> Templates
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Editor Sidebar -->
+        <aside class="editor-sidebar" id="editorSidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-edit"></i> Edit CV</h2>
+                <button class="btn-collapse" id="collapseBtn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+            
+            <!-- Form Sections (Draggable) -->
+            <div class="form-sections">
+                <!-- Personal Info -->
+                <div class="form-section active" data-section="personal" draggable="true">
+                    <h3><i class="fas fa-user"></i> Informasi Pribadi</h3>
+                    <div class="form-group">
+                        <label>Nama Lengkap</label>
+                        <input type="text" id="fullName" placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label>Judul Profesional</label>
+                        <input type="text" id="jobTitle" placeholder="Software Engineer">
+                    </div>
+                    <div class="form-group">
+                        <label>Foto Profil</label>
+                        <div class="upload-area" id="photoUpload">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Drag & drop atau klik untuk upload</p>
+                            <input type="file" accept="image/*" hidden>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact -->
+                <div class="form-section" data-section="contact" draggable="true">
+                    <h3><i class="fas fa-address-book"></i> Kontak</h3>
+                    <!-- Contact fields -->
+                </div>
+                
+                <!-- Education -->
+                <div class="form-section" data-section="education" draggable="true">
+                    <h3><i class="fas fa-graduation-cap"></i> Pendidikan</h3>
+                    <!-- Education fields -->
+                </div>
+                
+                <!-- Experience -->
+                <div class="form-section" data-section="experience" draggable="true">
+                    <h3><i class="fas fa-briefcase"></i> Pengalaman</h3>
+                    <!-- Experience fields -->
+                </div>
+                
+                <!-- Skills -->
+                <div class="form-section" data-section="skills" draggable="true">
+                    <h3><i class="fas fa-code"></i> Skills</h3>
+                    <!-- Skills fields -->
+                </div>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="sidebar-actions">
+                <button class="btn-add-section" id="addSectionBtn">
+                    <i class="fas fa-plus"></i> Tambah Section
+                </button>
+                <button class="btn-reset" id="resetBtn">
+                    <i class="fas fa-redo"></i> Reset
+                </button>
+            </div>
+        </aside>
+
+        <!-- CV Preview Area -->
+        <main class="preview-area">
+            <!-- Template Selector -->
+            <div class="template-selector">
+                <div class="template-option active" data-template="modern">
+                    <div class="template-preview modern-preview"></div>
+                    <span>Modern</span>
+                </div>
+                <div class="template-option" data-template="professional">
+                    <div class="template-preview professional-preview"></div>
+                    <span>Professional</span>
+                </div>
+                <div class="template-option" data-template="creative">
+                    <div class="template-preview creative-preview"></div>
+                    <span>Creative</span>
+                </div>
+                <div class="template-option" data-template="elegant">
+                    <div class="template-preview elegant-preview"></div>
+                    <span>Elegant</span>
+                </div>
+            </div>
+            
+            <!-- CV Preview Container -->
+            <div class="cv-container" id="cvContainer">
+                <!-- CV will be rendered here dynamically -->
+                <div class="cv-paper a4-size" id="cvPaper">
+                    <!-- Modern Template (Default) -->
+                    <div class="cv-template modern-template" id="cvContent">
+                        <!-- Content will be generated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Preview Controls -->
+            <div class="preview-controls">
+                <button class="btn-print" id="printBtn">
+                    <i class="fas fa-print"></i> Print
+                </button>
+                <button class="btn-download" id="downloadPdfBtn">
+                    <i class="fas fa-file-pdf"></i> Download PDF
+                </button>
+                <button class="btn-share" id="shareBtn">
+                    <i class="fas fa-share-alt"></i> Share
+                </button>
+            </div>
+        </main>
+        
+        <!-- Real-time Preview Panel -->
+        <aside class="preview-sidebar">
+            <h3><i class="fas fa-eye"></i> Live Preview</h3>
+            <div class="mobile-preview" id="mobilePreview">
+                <!-- Mobile preview of CV -->
+            </div>
+            <div class="preview-stats">
+                <div class="stat">
+                    <span class="stat-label">Sections</span>
+                    <span class="stat-value" id="sectionCount">6</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Words</span>
+                    <span class="stat-value" id="wordCount">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">A4 Pages</span>
+                    <span class="stat-value" id="pageCount">1</span>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Template Modal -->
+    <div class="modal" id="templateModal">
+        <div class="modal-content">
+            <h2>Pilih Template CV</h2>
+            <div class="template-grid">
+                <!-- Template options will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -507,6 +507,7 @@
             background-clip: text;
         }
 
+        /* Navigation Links */
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -826,6 +827,10 @@
 
         /* Experience Section */
         .experience-timeline {
+            scroll-behavior: smooth;
+            /* scrollbar-color: var(--primary-light);*/
+            max-height: 700px;
+            overflow: auto;
             position: relative;
             max-width: 900px;
             margin: 0 auto;
@@ -839,6 +844,16 @@
             bottom: 0;
             width: 3px;
             background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+        }
+
+        .experience-timeline::-webkit-scrollbar {
+            width: 6px;
+            margin-left: 100px;
+        }
+
+        .experience-timeline::-webkit-scrollbar-thumb {
+            background: var(--primary-light);
+            border-radius: 10px;
         }
 
         .timeline-item {
@@ -898,6 +913,23 @@
         }
 
         .filter-btn.active, .filter-btn:hover {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-color: transparent;
+        }
+
+        .filter-btn2 {
+            padding: 10px 25px;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .filter-btn2.active, .filter-btn2:hover {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             border-color: transparent;
@@ -1044,6 +1076,40 @@
             display: flex;
         }
 
+        /* mobile Navigation Links */
+        .nav-links-mobile {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .nav-links-mobile a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 12px 16px;
+            border-radius: 12px;
+            background: rgba(123, 0, 255, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links-mobile a:hover {
+            background: rgba(169, 18, 224, 0.12);
+            transform: translateX(6px);
+        }
+
+        .nav-links-mobile a.active {
+            background: linear-gradient(135deg, #4f8cff, #6a5cff);
+            color: #fff;
+            box-shadow: 0 6px 20px rgba(79, 140, 255, 0.4);
+        }
+
+
+        /* Mobile Settings */
         .mobile-settings {
             background-color: transparent;
             top: 70px;
@@ -1238,6 +1304,8 @@
                         <div class="dropdown-content">
                             <!--<a href="#blog"><i class="fas fa-blog"></i> Blog</a>
                             <a href="#testimonials"><i class="fas fa-comments"></i> Testimonials</a>-->
+                            <a href="http://localhost:3000/#home" class="href"><i class="fas fa-file-alt"></i> CV</a>
+                            <a href="cv-hybrid/index.html"><i class="fas fa-file-alt"></i> CV Tools</a>
                             <a href="#certifications"><i class="fas fa-certificate"></i> Certifications</a>
                             <a href="#hobbies"><i class="fas fa-gamepad"></i> Hobbies</a>
                         </div>
@@ -1395,12 +1463,24 @@
             </nav>
             
             <div class="mobile-nav" id="mobileNav">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
+                <div class="nav-links-mobile" mobile-nav-header="nav-links-mobile">
+                    <a href="#home"><i class="fas fa-home"></i> Home</a>
+                </div>
+                <div class="nav-links-mobile" mobile-nav-header="nav-links-mobile">
+                    <a href="#about"><i class="fas fa-user"></i> About</a>
+                </div>
+                <div class="nav-links-mobile" mobile-nav-header="nav-links-mobile">
+                    <a href="#skills"><i class="fas fa-code"></i> Skills</a>
+                </div>
+                <div class="nav-links-mobile" mobile-nav-header="nav-links-mobile">
+                    <a href="#experience"><i class="fas fa-briefcase"></i> Experience</a>
+                </div>
+                <div class="nav-links-mobile" mobile-nav-header="nav-links-mobile">
+                    <a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a>
+                </div>
+                <div class="nav-links-mobile" mobile-nav-header="nav-links-mobile">
+                    <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+                </div>
             </div>
         </div>
     </header>
@@ -1417,9 +1497,12 @@
                         <a href="#projects" class="btn">
                             <i class="fas fa-eye"></i> <span id="viewPortfolio">Lihat Portfolio</span>
                         </a>
-                        <a href="#" class="btn btn-outline" id="downloadCV">
+                        <a href="cv-hybrid/index.html" class="btn btn-outline" id="#"> <!-- downloadCV -->
                             <i class="fas fa-download"></i> <span id="downloadText">Unduh CV</span>
                         </a>
+                        <!-- <a href="#" class="btn btn-outline" id="downloadCV">
+                            <i class="fas fa-download"></i> <span id="downloadText">Unduh CV</span>
+                        </a> -->
                         <a href="#contact" class="btn btn-outline">
                             <i class="fas fa-envelope"></i> <span id="contactMe">Hubungi Saya</span>
                         </a>
@@ -1479,7 +1562,7 @@
                             <div class="category-header">
                                 <h3><i class="fas fa-bullseye"></i> <span id="specialization">Spesialisasi</span></h3>
                             </div>
-                            <div class="category-content active">
+                            <div class="category-content">
                                 <div class="skill-item">
                                     <div class="skill-header">
                                         <span>Web Development</span>
@@ -1649,13 +1732,24 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="category-content" id="graphicContent">
+                        <!-- Graphic Design Skills 1 -->
                         <div class="skill-item">
                             <div class="skill-header">
-                                <span><i class="fab fa-adobe"></i> Adobe Photoshop</span>
-                                <span>90%</span>
+                                <span><i class="fas fa-canva"></i> Canva</span>
+                                <span>99%</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-width="90"></div>
+                                <div class="skill-progress" data-width="99"></div>
+                            </div>
+                        </div>
+                        <!-- Graphic Design Skills 2 -->
+                         <div class="skill-item">
+                            <div class="skill-header">
+                                <span><i class="fas fa-adobe"></i> Adobe Photoshop</span>
+                                <span>10%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="10"></div>
                             </div>
                         </div>
                     </div>
@@ -1718,11 +1812,20 @@
         <div class="container">
             <h2 class="section-title" id="experienceTitle">Pengalaman</h2>
             <p class="section-subtitle" id="experienceSubtitle">Perjalanan profesional dan pencapaian karir</p>
+
+            <div class="project-filters">
+                <button class="filter-btn2 active" data-filter="all"><span id="allProjects">Semua Pengalaman</span></button>
+                <button class="filter-btn2" data-filter="sekolah"><span id="riwayatSekolah"><i class="fas fa-graduation-cap"></i> Riwayat Sekolah</span></button>
+                <button class="filter-btn2" data-filter="kerja"><span id="pengalamanKerja"><i class="fas fa-briefcase"></i> Pengalaman Kerja</span></button>
+                <button class="filter-btn2" data-filter="organisasi"><span id="organisasi"><i class="fas fa-users"></i> Organisasi</span></button>
+            </div>
             
             <div class="experience-timeline">
-                <div class="timeline-item">
+                <!-- Timeline items will be dynamically added here -->
+                 <!-- Riwayat Sekolah -->
+                <div class="timeline-item" data-category="sekolah">
                     <div class="timeline-date">
-                        2022<br><span id="present">Sekarang</span>
+                        2024<br><span id="present">Sekarang</span>
                     </div>
                     <div class="timeline-content">
                         <h3 id="role1">Senior Full Stack Developer & Data Analyst</h3>
@@ -1733,7 +1836,8 @@
                     </div>
                 </div>
                 
-                <div class="timeline-item">
+                <!-- Pengalaman Kerja -->
+                <div class="timeline-item" data-category="kerja">
                     <div class="timeline-date">
                         2020<br><span>2022</span>
                     </div>
@@ -1745,8 +1849,9 @@
                         </p>
                     </div>
                 </div>
-                
-                <div class="timeline-item">
+
+                <!-- organisasi -->
+                <div class="timeline-item" data-category="organisasi">
                     <div class="timeline-date">
                         2018<br><span>2020</span>
                     </div>
@@ -2042,17 +2147,17 @@
                                 </div>
                                 <div>
                                     <h4>Email</h4>
-                                    <p style="color: var(--text-secondary);">hello@rakiraihan.com</p>
+                                    <p style="color: var(--text-secondary);">rakiraihanazhar156@gmail.com</p>
                                 </div>
                             </div>
                             
                             <div style="display: flex; align-items: center; gap: 1rem;">
                                 <div style="width: 50px; height: 50px; border-radius: 12px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); display: flex; align-items: center; justify-content: center; color: white;">
-                                    <i class="fas fa-phone"></i>
+                                    <i class="fab fa-whatsapp"></i>
                                 </div>
                                 <div>
                                     <h4>Telepon</h4>
-                                    <p style="color: var(--text-secondary);">+62 812 3456 7890</p>
+                                    <p style="color: var(--text-secondary);">+62 812 1377 2570</p>
                                 </div>
                             </div>
                         </div>
@@ -2107,7 +2212,7 @@
             </div>
             
             <div style="text-align: center; padding-top: 30px; border-top: 1px solid var(--border-color); color: var(--text-secondary);">
-                <p id="copyright">&copy; 2023 Raki Raihan. All rights reserved.</p>
+                <p id="copyright">&copy; 2025 Raki Raihan. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -2147,7 +2252,7 @@
                 projectsTitle: "Portfolio",
                 projectsSubtitle: "Karya terbaik yang menunjukkan kemampuan multidisiplin",
                 allProjects: "Semua Proyek",
-                webProjects: "Web Development",
+                webProjects: "proyek website/aplikasi",
                 uiuxProjects: "UI/UX Design",
                 graphicProjects: "Desain Grafis",
                 dataProjects: "Analisis Data",
@@ -2200,7 +2305,7 @@
                 projectsTitle: "Portfolio",
                 projectsSubtitle: "Best works showcasing multidisciplinary abilities",
                 allProjects: "All Projects",
-                webProjects: "Web Development",
+                webProjects: "website/application project",
                 uiuxProjects: "UI/UX Design",
                 graphicProjects: "Graphic Design",
                 dataProjects: "Data Analysis",
@@ -2252,8 +2357,8 @@
                 desc3: "様々なクライアント向けWebサイトおよびモバイルアプリケーションの開発。ブランド認知度向上のための一貫した視覚的アイデンティティとマーケティング資料の作成。",
                 projectsTitle: "ポートフォリオ",
                 projectsSubtitle: "多分野の能力を示すベストワーク",
-                allProjects: "全てのプロジェクト",
-                webProjects: "Web開発",
+                allProjects: "すべてのプロジェクト",
+                webProjects: "ウェブサイト/アプリケーションプロジェクト",
                 uiuxProjects: "UI/UXデザイン",
                 graphicProjects: "グラフィックデザイン",
                 dataProjects: "データ分析",
@@ -2306,7 +2411,7 @@
                 projectsTitle: "作品集",
                 projectsSubtitle: "展示多学科能力的最佳作品",
                 allProjects: "所有项目",
-                webProjects: "网页开发",
+                webProjects: "网站/应用程序项目",
                 uiuxProjects: "UI/UX设计",
                 graphicProjects: "平面设计",
                 dataProjects: "数据分析",
@@ -2574,6 +2679,37 @@
             });
         });
 
+        // experience filtering
+        const filterButtons2 = document.querySelectorAll('.filter-btn2');
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        
+        filterButtons2.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons2.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                // Filter timeline items
+                timelineItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, 10);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
         // Project Filtering
         const filterButtons = document.querySelectorAll('.filter-btn');
         const projectCards = document.querySelectorAll('.project-card');
@@ -2601,11 +2737,34 @@
                             card.style.display = 'none';
                         }, 300);
                     }
-                });
+                })
             });
-        });
+        });     
 
         // Animate skill bars on scroll
+        /* function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            
+            skillBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                bar.style.width = '0%';
+                
+                // Trigger animation when element is in viewport
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            setTimeout(() => {
+                                bar.style.width = width + '%';
+                            }, 300);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                observer.observe(bar.parentElement.parentElement);
+            });
+        } */
+
         function animateSkillBars() {
             const skillBars = document.querySelectorAll('.skill-progress');
             
