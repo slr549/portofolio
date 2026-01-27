@@ -10,19 +10,19 @@ const About = () => {
     id: {
       title: "Tentang Saya",
       subtitle: "Software Technician & Fullstack Developer",
-      description: "Saya Ayu Permatasari, seorang Teknisi Perangkat Lunak dengan pengalaman lebih dari 10 tahun dalam merancang dan mengembangkan sistem perangkat lunak. Saya mahir dalam berbagai teknologi dan dapat bekerja di berbagai platform dengan beragam alat pengembangan.",
+      description: "Saya Raki Raihan, seorang Mahasiswa Informatika dengan pengalaman yang cukup mumpuni dalam merancang dan mengembangkan sistem perangkat lunak. Saya cukup mahir dalam berbagai teknologi (Web Developer, UI/UX Designer, Graphic Designer & Data Analyst)",
       secondParagraph: "Saya dapat bekerja secara mandiri maupun sebagai bagian dari tim, dengan fokus pada kualitas kode, arsitektur yang scalable, dan solusi inovatif untuk masalah kompleks.",
       personalInfo: {
-        email: "sautau@email.com",
-        phone: "(081) 230-865-865",
+        email: "rakiraihanazhar156.com",
+        phone: "(+62) 812-1377-2570",
         location: "J. Diponegoro 165-191, Darma, Kec. Wonokromo, Surabaya",
-        experience: "10+ Tahun"
+        experience: "1+ Tahun"
       },
       qualities: [
         {
           icon: <FaCode />,
           title: "Coding Expert",
-          desc: "Ahli dalam berbagai bahasa pemrograman dan framework"
+          desc: "Memahami berbagai bahasa pemrograman dan framework"
         },
         {
           icon: <FaLightbulb />,
@@ -44,13 +44,13 @@ const About = () => {
     en: {
       title: "About Me",
       subtitle: "Software Technician & Fullstack Developer",
-      description: "I'm Ayu Permatasari, a Software Technician with over 10 years of experience in designing and developing software systems. I'm proficient in various technologies and can work across multiple platforms with diverse development tools.",
+      description: "I am Raki Raihan, an Informatics student with considerable experience in designing and developing software systems. I am quite proficient in various technologies (Web Developer, UI/UX Designer, Graphic Designer & Data Analyst).",
       secondParagraph: "I can work independently or as part of a team, focusing on code quality, scalable architecture, and innovative solutions to complex problems.",
       personalInfo: {
-        email: "sautau@email.com",
-        phone: "(081) 230-865-865",
+        email: "rakiraihanazhar156.com",
+        phone: "(+62) 812-1377-2570",
         location: "J. Diponegoro 165-191, Darma, Kec. Wonokromo, Surabaya",
-        experience: "10+ Years"
+        experience: "1+ Years"
       },
       qualities: [
         {

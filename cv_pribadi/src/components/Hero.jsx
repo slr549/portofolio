@@ -43,7 +43,7 @@ const Hero = () => {
             variants={fadeInUp}
             className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-4"
           >
-            Ayu Permatasari
+            Raki Raihan
           </motion.h1>
 
           {/* Role dengan animasi typewriter */}
@@ -65,7 +65,7 @@ const Hero = () => {
             {translations[language].heroDescription}
             <br />
             <span className="text-gray-500 dark:text-gray-500">
-              10+ tahun pengalaman • Fullstack Developer • Problem Solver
+              1+ tahun pengalaman • Web Developer • Problem Solver • UI/UX Desain • Desain Grafis
             </span>
           </motion.p>
 
@@ -82,7 +82,7 @@ const Hero = () => {
             </a>
             
             <a
-              href="/cv-ayu-permatasari.pdf" // Ganti dengan path file CV kamu
+              href="/cv-raki-raihan.pdf" // Ganti dengan path file CV kamu
               download
               className="px-8 py-4 border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 font-semibold rounded-lg transition duration-300 transform hover:-translate-y-1 hover:shadow-xl text-center"
             >
@@ -96,15 +96,19 @@ const Hero = () => {
             className="grid grid-cols-3 gap-8 mt-20 pt-10 border-t border-gray-200 dark:border-gray-800"
           >
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">10+</div>
+              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">1+</div>
               <div className="text-gray-600 dark:text-gray-400">Tahun Pengalaman</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">50+</div>
+              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">2+</div>
+              <div className="text-gray-600 dark:text-gray-400">Draft Proyek</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">2+</div>
               <div className="text-gray-600 dark:text-gray-400">Proyek Selesai</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">100%</div>
+              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">90%</div>
               <div className="text-gray-600 dark:text-gray-400">Kepuasan Klien</div>
             </div>
           </motion.div>

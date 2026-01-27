@@ -11,7 +11,7 @@ export const LanguageProvider = ({ children }) => {
     id: {
       heroTitle: "Halo, saya",
       heroSubtitle: "Teknisi Perangkat Lunak",
-      heroDescription: "Pengembang perangkat lunak berpengalaman dengan lebih dari 10 tahun dalam merancang dan mengembangkan sistem.",
+      heroDescription: "Pengembang perangkat lunak berpengalaman dengan lebih dari 1 tahun dalam merancang dan mengembangkan sistem.",
       downloadCV: "Unduh CV",
       contactMe: "Hubungi Saya",
       navHome: "Beranda",
@@ -20,11 +20,12 @@ export const LanguageProvider = ({ children }) => {
       navExperience: "Pengalaman",
       navEducation: "Pendidikan",
       navContact: "Kontak",
+      navPortofolio: "Portofolio",
     },
     en: {
       heroTitle: "Hello, I'm",
       heroSubtitle: "Software Technician",
-      heroDescription: "Experienced software developer with 10+ years in designing and developing systems.",
+      heroDescription: "Experienced software developer with 1+ years in designing and developing systems.",
       downloadCV: "Download CV",
       contactMe: "Contact Me",
       navHome: "Home",
@@ -33,6 +34,7 @@ export const LanguageProvider = ({ children }) => {
       navExperience: "Experience",
       navEducation: "Education",
       navContact: "Contact",
+      navPortofolio: "Portfolio",
     }
   };
 

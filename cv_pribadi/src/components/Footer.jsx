@@ -1,11 +1,11 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { useTheme } from '../contexts/ThemeContext';
+// import { useTheme } from '../contexts/ThemeContext';
 import { FaHeart, FaArrowUp } from 'react-icons/fa';
 
 const Footer = () => {
   const { language } = useLanguage();
-  const { isDarkMode } = useTheme();
+  // const { isDarkMode } = useTheme();
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -31,7 +31,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="mb-6 md:mb-0 text-center md:text-left">
             <div className="text-2xl font-bold text-white mb-2">
-              <span className="text-blue-400">Ayu</span>Permatasari
+              <span className="text-blue-400">Raki</span>Raki Raihan
             </div>
             <p className="text-gray-400">
               © {currentYear} {language === 'id' ? 'Hak Cipta Dilindungi' : 'All Rights Reserved'}
@@ -69,13 +69,13 @@ const Footer = () => {
         <div className="text-center text-gray-500 text-sm">
           <p>
             {language === 'id' 
-              ? 'Portofolio profesional Ayu Permatasari - Teknisi Perangkat Lunak & Fullstack Developer'
-              : 'Professional portfolio of Ayu Permatasari - Software Technician & Fullstack Developer'}
+              ? 'Portofolio profesional Raki Raihan - Perangkat Lunak, UI/UX Desain, Desain Grapis, & Web Developer'
+              : 'Raki Raihan\'s professional portfolio -Software, UI/UX Design, Graphic Design, & Web Developer'}
           </p>
           <p className="mt-2">
             {language === 'id'
-              ? 'Email: sautau@email.com | Telp: (081) 230-865-865'
-              : 'Email: sautau@email.com | Phone: (081) 230-865-865'}
+              ? 'Email: rakiraihanazhar156.com | Telp: (+62) 812-1377-2570'
+              : 'Email: rakiraihanazhar156.com | Phone: (+62) 812-1377-2570'}
           </p>
         </div>
       </div>

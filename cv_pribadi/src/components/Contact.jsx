@@ -56,21 +56,21 @@ const Contact = () => {
     {
       icon: <FaEnvelope />,
       title: "Email",
-      value: "sautau@email.com",
-      link: "mailto:sautau@email.com",
+      value: "rakiraihanazhar156.com",
+      link: "mailto:rakiraihanazhar156.com",
       color: "text-red-500 bg-red-100 dark:bg-red-900/30"
     },
     {
       icon: <FaPhone />,
       title: "Phone",
-      value: "(081) 230-865-865",
-      link: "tel:+6281230865865",
+      value: "(+62) 812-1377-2570",
+      link: "tel:+6281213772570",
       color: "text-green-500 bg-green-100 dark:bg-green-900/30"
     },
     {
       icon: <FaMapMarkerAlt />,
       title: "Location",
-      value: "Surabaya, Indonesia",
+      value: "Bogor, Indonesia",
       link: "https://maps.google.com/?q=J.+Diponegoro+165-191,+Darma,+Kec.+Wonokromo,+Surabaya",
       color: "text-blue-500 bg-blue-100 dark:bg-blue-900/30"
     }
@@ -80,13 +80,13 @@ const Contact = () => {
     {
       icon: <FaLinkedin />,
       name: "LinkedIn",
-      url: "https://linkedin.com/in/ayu-permatasari",
+      url: "https://linkedin.com/in/raki-raihan",
       color: "hover:bg-blue-600 hover:text-white"
     },
     {
       icon: <FaGithub />,
       name: "GitHub",
-      url: "https://github.com/ayu-permatasari",
+      url: "https://github.com/raki-raihan",
       color: "hover:bg-gray-800 hover:text-white dark:hover:bg-white dark:hover:text-black"
     }
   ];

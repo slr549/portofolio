@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { FaBriefcase, FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
 
 const Experience = () => {
-  const { language, translations } = useLanguage();
+  const { language, /* translations */ } = useLanguage();
 
   const experiences = [
     {
