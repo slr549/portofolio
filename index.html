@@ -8,6 +8,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
     <style>
+        /* Three.js Background */
+        #three-bg {
+            position: fixed; /* Tetap di tempat saat scroll */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* PENTING: Taruh di belakang layer konten */
+            pointer-events: none; /* Agar klik tembus ke tombol di depannya */
+        }
+
+        /* Theme Variables */
         :root {
             /* Light Theme Default */
             --primary-color: #6366f1;
@@ -789,15 +801,36 @@
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 1.5rem;
             padding-top: 1.5rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
+            /* di ubah */
+            max-height: 0px; /* sblm: 2000px*/
+            /* tambahan 1 baris */
+            opacity: 0; /* tidk ad baris ini */
+            overflow: hidden; /* visible */
+            transition: max-height 0.5s ease, opacity 0.5s ease;
         }
 
         .category-content.active {
-            max-height: 500px;
+            max-height: 500px; /* sblm: 2000px */
+            /* tambahan 1 baris */
+            opacity: 1;
         }
 
+        /* penamabahan 2 class css */
+        /*.category-content.inactive {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+
+        .category-content.hidden {           
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            padding-top: 0;
+            margin: 0;
+        } */
+
+        /* Skill Item */
         .skill-item {
             display: flex;
             flex-direction: column;
@@ -821,7 +854,7 @@
             height: 100%;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             border-radius: 4px;
-            width: 0;
+            width: 0; /* sblmnya: 50% */
             transition: width 1.5s ease;
         }
 
@@ -1303,12 +1336,13 @@
                         <a href="#">More <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-content">
                             <!--<a href="#blog"><i class="fas fa-blog"></i> Blog</a>
-                            <a href="#testimonials"><i class="fas fa-comments"></i> Testimonials</a>-->
-                            <a href="http://localhost:3000/#home" class="href"><i class="fas fa-file-alt"></i> CV</a>
+                            <a href="#testimonials"><i class="fas fa-comments"></i> Testimonials</a>
+                            <a href="http://localhost:3000/#home" class="href"><i class="fas fa-file-alt"></i> CV</a> -->
+                            <a href="build/index.html" class="href"><i class="fas fa-file-alt"></i> CV</a>
                             <a href="cv-hybrid/index.html"><i class="fas fa-file-alt"></i> CV Tools</a>
                             <a href="#certifications"><i class="fas fa-certificate"></i> Certifications</a>
                             <a href="#hobbies"><i class="fas fa-gamepad"></i> Hobbies</a>
-                        </div>
+                        </div> 
                     </div>
 
                     <div class="nav-dropdown">
@@ -1586,10 +1620,20 @@
                                 <div class="skill-item">
                                     <div class="skill-header">
                                         <span>Data Analysis</span>
-                                        <span>85%</span>
+                                        <span>50%</span>
                                     </div>
                                     <div class="skill-bar">
-                                        <div class="skill-progress" data-width="85"></div>
+                                        <div class="skill-progress" data-width="50"></div>
+                                    </div>
+                                </div>
+
+                                <div class="skill-item">
+                                    <div class="skill-header">
+                                        <span>Desain Grafis</span>
+                                        <span>88%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" data-width="88"></div>
                                     </div>
                                 </div>
                             </div>
@@ -1822,22 +1866,64 @@
             
             <div class="experience-timeline">
                 <!-- Timeline items will be dynamically added here -->
-                 <!-- Riwayat Sekolah -->
+                <!-- Riwayat Sekolah 4 -->
+                <div class="timeline-item" data-category="sekolah">
+                    <div class="timeline-date">
+                        2025<br><span id="present">Sekarang</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 id="role1">Institut Teknologi dan Bisnis Visi Nusantara Bogor</h3>
+                        <p class="timeline-company">Kewirausahaan</p>
+                        <p class="timeline-description" id="desc1">
+                            Sedang menempuh pendidikan di bidang Kewirausahaan dengan fokus pada pengembangan bisnis digital.
+                        </p>
+                    </div>
+                </div> 
+
+                <!-- Riwayat Sekolah 3 -->
                 <div class="timeline-item" data-category="sekolah">
                     <div class="timeline-date">
                         2024<br><span id="present">Sekarang</span>
                     </div>
                     <div class="timeline-content">
-                        <h3 id="role1">Senior Full Stack Developer & Data Analyst</h3>
-                        <p class="timeline-company">TechVision Solutions</p>
+                        <h3 id="role1">STIKOM EL-RAHMA</h3>
+                        <p class="timeline-company">Informatika</p>
                         <p class="timeline-description" id="desc1">
-                            Memimpin pengembangan aplikasi web modern dengan integrasi analitik data real-time. Membangun dashboard interaktif untuk visualisasi data dan implementasi machine learning models untuk prediksi bisnis.
+                            Sedang menempuh pendidikan di bidang Informatika dengan fokus pada pengembangan web.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Riwayat Sekolah 2 -->
+                <div class="timeline-item" data-category="sekolah">
+                    <div class="timeline-date">
+                        2021<br><span id="present">2024</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 id="role1">MA AL-HAITSAM</h3>
+                        <p class="timeline-company">IPA</p>
+                        <p class="timeline-description" id="desc1">
+                            Sedang menempuh pendidikan di bidang Informatika dengan fokus pada pengembangan web.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Riwayat sekolah 1 -->
+                <div class="timeline-item" data-category="sekolah">
+                    <div class="timeline-date">
+                        2018<br><span id="present">2021</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 id="role1">AZ-ZEIN</h3>
+                        <p class="timeline-company">Tahfidz</p>
+                        <p class="timeline-description" id="desc1">
+                            Menyelesaikan pendidikan menengah dengan fokus pada tahfidz Al-Qur'an dan ilmu agama.
                         </p>
                     </div>
                 </div>
                 
                 <!-- Pengalaman Kerja -->
-                <div class="timeline-item" data-category="kerja">
+                <!--<div class="timeline-item" data-category="kerja">
                     <div class="timeline-date">
                         2020<br><span>2022</span>
                     </div>
@@ -1848,10 +1934,24 @@
                             Merancang dan mengembangkan antarmuka pengguna untuk berbagai klien startup dan enterprise. Meningkatkan engagement user sebesar 40% melalui desain yang data-driven dan user-centric.
                         </p>
                     </div>
-                </div>
+                </div>-->
 
                 <!-- organisasi -->
                 <div class="timeline-item" data-category="organisasi">
+                    <div class="timeline-date">
+                        2022<br><span>2023</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 id="role3">Ismaqdis</h3>
+                        <p class="timeline-company">Anggota</p>
+                        <p class="timeline-description" id="desc3">
+                            Berpartisipasi aktif dalam kegiatan organisasi, mengembangkan keterampilan kepemimpinan dan kerja tim.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- organisasi # --> 
+                <!--<div class="timeline-item" data-category="organisasi">
                     <div class="timeline-date">
                         2018<br><span>2020</span>
                     </div>
@@ -1862,7 +1962,7 @@
                             Mengembangkan website dan aplikasi mobile untuk berbagai klien. Membuat identitas visual dan material marketing yang konsisten untuk meningkatkan brand awareness.
                         </p>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
     </section>
@@ -1962,6 +2062,8 @@
                                 <span class="project-tag"><i class="fab fa-css3-alt"></i> CSS</span>
                                 <span class="project-tag"><i class="fab fa-html5"></i> HTML</span>
                                 <span class="project-tag"><i class="fab fa-node-js"></i> Node.Js</span>
+                                <span class="project-tag"><i class="fab fa-bootstrap"></i> Bootstrap</span>
+                                <span class="project-tag"><i class="fab fa-react"></i> React</span>
                             </div>
                             
                             <div class="project-links" style="margin-top: 1.5rem; display: flex; gap: 1rem;">
@@ -2446,32 +2548,32 @@
         const settingsDropdownMobile = document.getElementById('settingsDropdownMobile');
 
         if (settingsBtn && settingsDropdown) {
-        settingsBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            settingsDropdown.classList.toggle('active');
-        });
+            settingsBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                settingsDropdown.classList.toggle('active');
+            });
         }
 
         document.addEventListener('click', function(e) {
-        if (
-            settingsDropdown && settingsBtn &&
-            settingsDropdownMobile && settingsBtnMobile &&
-            !settingsDropdown.contains(e.target) &&
-            !settingsBtn.contains(e.target) &&
-            !settingsDropdownMobile.contains(e.target) &&
-            !settingsBtnMobile.contains(e.target)
-        ) {
-            settingsDropdown.classList.remove('active');
-            settingsDropdownMobile.classList.remove('active');
-        }
+            if (
+                settingsDropdown && settingsBtn &&
+                settingsDropdownMobile && settingsBtnMobile &&
+                !settingsDropdown.contains(e.target) &&
+                !settingsBtn.contains(e.target) &&
+                !settingsDropdownMobile.contains(e.target) &&
+                !settingsBtnMobile.contains(e.target)
+            ) {
+                settingsDropdown.classList.remove('active');
+                settingsDropdownMobile.classList.remove('active');
+            }
         }); 
 
         // dropdown toggle for mobile
-        if (settingsBtnMobile && settingsDropdownMobile) {
-        settingsBtnMobile.addEventListener('click', function(e) {
-            e.stopPropagation();
-            settingsDropdownMobile.classList.toggle('active');
-        });
+            if (settingsBtnMobile && settingsDropdownMobile) {
+            settingsBtnMobile.addEventListener('click', function(e) {
+                e.stopPropagation();
+                settingsDropdownMobile.classList.toggle('active');
+            });
         }
 
         // Language Switcher
@@ -2574,124 +2676,86 @@
             document.getElementById('copyright').textContent = langData.copyright;
         }
 
-        // Initialize 3D Background
-        function initThreeJS() {
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            document.getElementById('three-bg').appendChild(renderer.domElement);
-
-            // Create floating particles
-            const particlesGeometry = new THREE.BufferGeometry();
-            const particlesCount = 500;
-            const posArray = new Float32Array(particlesCount * 3);
-
-            for(let i = 0; i < particlesCount * 3; i++) {
-                posArray[i] = (Math.random() - 0.5) * 10;
-            }
-
-            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-
-            // Particle color based on theme
-            let particleColor;
-            if (currentTheme === 'dark-theme') particleColor = 0x818cf8;
-            else if (currentTheme === 'cyber-theme') particleColor = 0x00f3ff;
-            else if (currentTheme === 'nature-theme') particleColor = 0x10b981;
-            else if (currentTheme === 'sunset-theme') particleColor = 0xf59e0b;
-            else particleColor = 0x6366f1;
-
-            const particlesMaterial = new THREE.PointsMaterial({
-                size: 0.02,
-                color: particleColor,
-                transparent: true,
-                opacity: 0.6
-            });
-
-            const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-            scene.add(particlesMesh);
-
-            camera.position.z = 5;
-
-            // Animation
-            function animate() {
-                requestAnimationFrame(animate);
-                particlesMesh.rotation.x += 0.001;
-                particlesMesh.rotation.y += 0.001;
-                renderer.render(scene, camera);
-            }
-            animate();
-
-            // Handle window resize
-            window.addEventListener('resize', () => {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            });
-        }
+        // --- 1. SETTINGS & TRANSLATIONS (Tetap Sama) ---
+        // (Kode translations, language, theme switcher Anda sudah benar, 
+        // saya persingkat di sini agar fokus ke perbaikan logika)
+        
+        // ... [Biarkan bagian translations dan theme settings seperti semula] ...
+        
+        // --- TEMPEL BAGIAN INI MULAI DARI BAWAH THEME SWITCHER ---
 
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileNav = document.getElementById('mobileNav');
         
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileNav.classList.toggle('active');
-            mobileMenuBtn.innerHTML = mobileNav.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
-        });
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileNav.classList.toggle('active');
+                mobileMenuBtn.innerHTML = mobileNav.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+            });
+        }
 
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
+        // Skills Dropdown (Logika Accordion)
+        const skillHeaders = document.querySelectorAll('.category-header');
+        
+        skillHeaders.forEach(header => {
+            header.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('.fa-chevron-down');
                 
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
+                if (content) {
+                    content.classList.toggle('active');
                     
-                    // Close mobile menu if open
-                    mobileNav.classList.remove('active');
-                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    // Putar icon
+                    if (icon) {
+                        icon.style.transform = content.classList.contains('active') 
+                            ? 'rotate(180deg)' 
+                            : 'rotate(0deg)';
+                    }
                 }
             });
         });
 
-        // Skills Dropdown
-        const skillHeaders = document.querySelectorAll('.category-header');
-        
-        skillHeaders.forEach(header => {
-            header.addEventListener('click', () => {
-                const contentId = header.id.replace('Header', 'Content');
-                const content = document.getElementById(contentId);
-                const icon = header.querySelector('.fa-chevron-down');
-                
-                content.classList.toggle('active');
-                icon.style.transform = content.classList.contains('active') 
-                    ? 'rotate(180deg)' 
-                    : 'rotate(0deg)';
-            });
-        });
+        // Animate Skill Bars (Logika Loading Bar)
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            
+            // Setup Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const bar = entry.target;
+                        const width = bar.getAttribute('data-width');
+                        
+                        // Delay sedikit agar transisi CSS terlihat
+                        setTimeout(() => {
+                            bar.style.width = width + '%';
+                        }, 100);
+                        
+                        observer.unobserve(bar);
+                    }
+                });
+            }, { threshold: 0.1 });
 
-        // experience filtering
+            skillBars.forEach(bar => {
+                bar.style.width = '0%'; // Reset ke 0 dulu
+                observer.observe(bar);  // Observe langsung ke bar-nya
+            });
+        }
+
+        // Experience Filtering
         const filterButtons2 = document.querySelectorAll('.filter-btn2');
         const timelineItems = document.querySelectorAll('.timeline-item');
         
         filterButtons2.forEach(button => {
             button.addEventListener('click', () => {
-                // Update active button
                 filterButtons2.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
                 
                 const filterValue = button.getAttribute('data-filter');
                 
-                // Filter timeline items
                 timelineItems.forEach(item => {
                     if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
                         item.style.display = 'block';
@@ -2716,13 +2780,10 @@
         
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // Update active button
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
-                
                 const filterValue = button.getAttribute('data-filter');
                 
-                // Filter projects
                 projectCards.forEach(card => {
                     if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
                         card.style.display = 'block';
@@ -2737,135 +2798,121 @@
                             card.style.display = 'none';
                         }, 300);
                     }
-                })
+                });
             });
-        });     
+        });
 
-        // Animate skill bars on scroll
-        /* function animateSkillBars() {
-            const skillBars = document.querySelectorAll('.skill-progress');
-            
-            skillBars.forEach(bar => {
-                const width = bar.getAttribute('data-width');
-                bar.style.width = '0%';
-                
-                // Trigger animation when element is in viewport
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            setTimeout(() => {
-                                bar.style.width = width + '%';
-                            }, 300);
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.5 });
-                
-                observer.observe(bar.parentElement.parentElement);
-            });
-        } */
-
-        function animateSkillBars() {
-            const skillBars = document.querySelectorAll('.skill-progress');
-            
-            skillBars.forEach(bar => {
-                const width = bar.getAttribute('data-width');
-                bar.style.width = '0%';
-                
-                // Trigger animation when element is in viewport
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            setTimeout(() => {
-                                bar.style.width = width + '%';
-                            }, 300);
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.5 });
-                
-                observer.observe(bar.parentElement.parentElement);
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // Simulasi kirim
+                alert('Pesan berhasil dikirim!');
+                contactForm.reset();
             });
         }
 
-        // Form submission
-        const contactForm = document.getElementById('contactForm');
-        
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = {
-                name: document.getElementById('nameInput').value,
-                email: document.getElementById('emailInput').value,
-                subject: document.getElementById('subjectInput').value,
-                message: document.getElementById('messageInput').value
-            };
-            
-            // In a real implementation, you would send this to a server
-            console.log('Form submitted:', formData);
-            
-            // Show success message
-            alert(currentLang === 'id' ? 'Pesan berhasil dikirim! Saya akan membalas dalam 24 jam.' :
-                  currentLang === 'en' ? 'Message sent successfully! I will reply within 24 hours.' :
-                  currentLang === 'ja' ? 'メッセージが送信されました！24時間以内に返信いたします。' :
-                  '消息发送成功！我将在24小时内回复。');
-            
-            // Reset form
-            contactForm.reset();
-        });
-
-        // Download CV button
+        // Download CV
         const downloadCVBtn = document.getElementById('downloadCV');
-        
-        downloadCVBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            
-            // In a real implementation, this would download the CV file
-            const message = currentLang === 'id' ? 'CV sedang diunduh...' :
-                          currentLang === 'en' ? 'Downloading CV...' :
-                          currentLang === 'ja' ? '履歴書をダウンロード中...' :
-                          '正在下载简历...';
-            
-            alert(message);
-            
-            // Simulate download
-            setTimeout(() => {
-                const successMessage = currentLang === 'id' ? 'CV berhasil diunduh!' :
-                                    currentLang === 'en' ? 'CV downloaded successfully!' :
-                                    currentLang === 'ja' ? '履歴書がダウンロードされました！' :
-                                    '简历下载成功！';
-                alert(successMessage);
-            }, 1000);
-        });
+        if (downloadCVBtn) {
+            downloadCVBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('Mengunduh CV...');
+            });
+        }
 
-        // Scroll animations
+        // Scroll Animations
         const fadeElements = document.querySelectorAll('.about, .skills, .experience, .projects, .contact');
-        
         const fadeInOnScroll = () => {
             fadeElements.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
                 const elementVisible = 150;
-                
                 if (elementTop < window.innerHeight - elementVisible) {
                     element.style.opacity = '1';
                     element.style.transform = 'translateY(0)';
                 }
             });
         };
+        window.addEventListener('scroll', fadeInOnScroll);
 
-        // Initialize on page load
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(20px)';
+            } else {
+                header.style.background = 'var(--glass-bg)';
+            }
+        });
+
+        // --- FUNGSI 3D BACKGROUND (Dipisah agar rapi) ---
+        function initThreeJS() {
+            if (typeof THREE === 'undefined') return;
+            const container = document.getElementById('three-bg');
+            if (!container) return;
+
+            // Bersihkan canvas lama
+            while (container.firstChild) {
+                container.removeChild(container.firstChild);
+            }
+
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 5;
+
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            container.appendChild(renderer.domElement);
+
+            // Partikel
+            const particlesGeometry = new THREE.BufferGeometry();
+            const particlesCount = 700;
+            const posArray = new Float32Array(particlesCount * 3);
+
+            for(let i = 0; i < particlesCount * 3; i++) {
+                posArray[i] = (Math.random() - 0.5) * 15;
+            }
+
+            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+            
+            const material = new THREE.PointsMaterial({
+                size: 0.025,
+                color: 0x6366f1, // Warna default
+                transparent: true,
+                opacity: 0.8,
+            });
+
+            const particlesMesh = new THREE.Points(particlesGeometry, material);
+            scene.add(particlesMesh);
+
+            function animate() {
+                requestAnimationFrame(animate);
+                particlesMesh.rotation.y += 0.0005;
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+
+        // --- INISIALISASI UTAMA (Saat Halaman Siap) ---
         window.addEventListener('DOMContentLoaded', () => {
-            // Initialize 3D background
+            // 1. Jalankan ThreeJS
             initThreeJS();
-            
-            // Animate skill bars
+
+            // 2. Jalankan Animasi Skill Bar
             animateSkillBars();
-            
-            // Initialize scroll animations
+
+            // 3. Jalankan Animasi Scroll
             fadeInOnScroll();
-            
-            // Make all skill categories expanded by default
+
+            // 4. Buka Otomatis Semua Skill (Sesuai keinginan Anda sebelumnya)
             const skillContents = document.querySelectorAll('.category-content');
             skillContents.forEach(content => {
                 content.classList.add('active');
@@ -2873,26 +2920,6 @@
                 if (icon) icon.style.transform = 'rotate(180deg)';
             });
         });
-
-        // Update animations on scroll
-        window.addEventListener('scroll', fadeInOnScroll);
-
-        // Update navbar on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.backdropFilter = 'blur(20px)';
-                if (document.body.classList.contains('dark-theme') || 
-                    document.body.classList.contains('cyber-theme') || 
-                    document.body.classList.contains('nature-theme') || 
-                    document.body.classList.contains('sunset-theme')) {
-                    header.style.background = 'var(--glass-bg)';
-                }
-            } else {
-                header.style.background = 'var(--glass-bg)';
-            }
-        });
-    </script>
+    </script> 
 </body>
 </html>
