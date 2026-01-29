@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sertifikasi Pro | Portfolio Digital Profesional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+  
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📜</text></svg>">
+    
+    <!-- Js Files -->
+    <!-- <script src="assets/js/main.js"></script> -->
+</head>
+<body class="light-mode" data-theme="light">
+    <!-- Navigation Dots -->
+    <div class="nav-dots">
+        <button class="nav-dot active" data-page="home"><span>🏠</span><span class="dot-label">Beranda</span></button>
+        <button class="nav-dot" data-page="certificates"><span>📜</span><span class="dot-label">Sertifikat</span></button>
+        <button class="nav-dot" data-page="timeline"><span>📅</span><span class="dot-label">Timeline</span></button>
+        <button class="nav-dot" data-page="about"><span>👤</span><span class="dot-label">Profil</span></button>
+        <button class="nav-dot" data-page="contact"><span>📞</span><span class="dot-label">Kontak</span></button>
+    </div>
+    
+    <!-- Floating Theme Controls -->
+    <div class="theme-controls">
+        <button class="theme-btn" id="themeToggle" title="Ganti tema">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+        </button>
+        <div class="theme-presets">
+            <button class="preset-btn" data-theme="professional" title="Tema Profesional">
+                <div class="preset-color" style="background: linear-gradient(135deg, #2563eb, #0ea5e9)"></div>
+            </button>
+            <button class="preset-btn" data-theme="dark-blue" title="Tema Biru Gelap">
+                <div class="preset-color" style="background: linear-gradient(135deg, #1e3a8a, #3b82f6)"></div>
+            </button>
+            <button class="preset-btn" data-theme="green" title="Tema Hijau">
+                <div class="preset-color" style="background: linear-gradient(135deg, #059669, #10b981)"></div>
+            </button>
+            <button class="preset-btn" data-theme="purple" title="Tema Ungu">
+                <div class="preset-color" style="background: linear-gradient(135deg, #7c3aed, #8b5cf6)"></div>
+            </button>
+            <button class="preset-btn" data-theme="custom" title="Tema Kustom">
+                <div class="preset-color" style="background: conic-gradient(from 0deg, #ff6b6b, #ffa726, #ffd93d, #6bcf7f, #4d96ff, #9d4edd)"></div>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Custom Theme Modal -->
+    <div class="custom-theme-modal" id="customThemeModal">
+        <div class="custom-theme-content">
+            <h3><i class="fas fa-palette"></i> Kustomisasi Tema</h3>
+            <div class="color-pickers">
+                <div class="color-picker">
+                    <label for="primaryColor">Warna Primer</label>
+                    <input type="color" id="primaryColor" value="#2563eb">
+                </div>
+                <div class="color-picker">
+                    <label for="secondaryColor">Warna Sekunder</label>
+                    <input type="color" id="secondaryColor" value="#0ea5e9">
+                </div>
+                <div class="color-picker">
+                    <label for="accentColor">Warna Aksen</label>
+                    <input type="color" id="accentColor" value="#8b5cf6">
+                </div>
+            </div>
+            <div class="custom-theme-actions">
+                <button class="btn-secondary" id="cancelCustom">Batal</button>
+                <button class="btn-primary" id="applyCustom">Terapkan</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Container for Pages -->
+    <main class="page-container">
+        <!-- Page 1: Home -->
+        <section class="page active" id="page-home" data-page="home">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge animate-float">
+                        <i class="fas fa-award"></i> Kredensial Terverifikasi
+                    </div>
+                    
+                    <h1 class="hero-title animate-slide-up">
+                        <span class="highlight">Sertifikasi</span> Profesional & 
+                        <span class="highlight">Portfolio</span> Digital
+                    </h1>
+                    
+                    <p class="hero-subtitle animate-slide-up delay-1">
+                        Koleksi sertifikasi dan kualifikasi profesional yang diverifikasi. 
+                        Bukti komitmen terhadap pengembangan keahlian, standar industri, 
+                        dan pembelajaran berkelanjutan.
+                    </p>
+                    
+                    <div class="hero-actions animate-slide-up delay-2">
+                        <button class="btn-primary explore-btn">
+                            <span>Jelajahi Sertifikat</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button class="btn-secondary contact-btn">
+                            <span>Hubungi Saya</span>
+                            <i class="fas fa-envelope"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="hero-stats animate-fade-in delay-3">
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="12">0</div>
+                            <div class="stat-label">Sertifikat Profesional</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="6">0</div>
+                            <div class="stat-label">Kategori Keahlian</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="5">0</div>
+                            <div class="stat-label">Tahun Pengembangan</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="8">0</div>
+                            <div class="stat-label">Lembaga Terakreditasi</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-visual animate-slide-left">
+                    <div class="certificate-stack">
+                        <div class="certificate-item cert-1">
+                            <div class="cert-header">
+                                <div class="cert-badge">🏆</div>
+                                <div class="cert-issuer">Google</div>
+                            </div>
+                            <div class="cert-title">UX Design Professional</div>
+                            <div class="cert-footer">2023</div>
+                        </div>
+                        <div class="certificate-item cert-2">
+                            <div class="cert-header">
+                                <div class="cert-badge">⚙️</div>
+                                <div class="cert-issuer">AWS</div>
+                            </div>
+                            <div class="cert-title">Solutions Architect</div>
+                            <div class="cert-footer">2023</div>
+                        </div>
+                        <div class="certificate-item cert-3">
+                            <div class="cert-header">
+                                <div class="cert-badge">📊</div>
+                                <div class="cert-issuer">IBM</div>
+                            </div>
+                            <div class="cert-title">Data Science</div>
+                            <div class="cert-footer">2022</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator animate-bounce">
+                <i class="fas fa-chevron-down"></i>
+                <span>Gulir untuk menjelajahi</span>
+            </div>
+        </section>
+        
+        <!-- Page 2: Certificates -->
+        <section class="page" id="page-certificates" data-page="certificates">
+            <div class="page-header">
+                <h2 class="page-title animate-slide-up">
+                    <i class="fas fa-certificate"></i> Portfolio Sertifikasi
+                </h2>
+                <p class="page-subtitle animate-slide-up delay-1">
+                    Koleksi lengkap sertifikasi profesional yang diverifikasi dari lembaga terpercaya.
+                </p>
+            </div>
+            
+            <div class="filter-section animate-fade-in delay-2">
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="certificateSearch" placeholder="Cari sertifikat...">
+                        <button class="search-clear" id="clearSearch">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="filter-controls">
+                        <select id="categoryFilter" class="filter-select">
+                            <option value="all">Semua Kategori</option>
+                            <option value="programming">Pemrograman</option>
+                            <option value="design">UI/UX & Desain</option>
+                            <option value="data">Data & AI</option>
+                            <option value="gaming">Game & Esports</option>
+                            <option value="music">Musik & Kreatif</option>
+                            <option value="soft-skills">Keterampilan Lunak</option>
+                        </select>
+                        
+                        <select id="yearFilter" class="filter-select">
+                            <option value="all">Semua Tahun</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                        </select>
+                        
+                        <button class="filter-reset" id="resetFilters">
+                            <i class="fas fa-redo"></i> Reset
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="certificates-grid" id="certificatesGrid">
+                <!-- Certificates will be loaded here by JavaScript -->
+            </div>
+            
+            <div class="certificate-modal" id="certificateModal">
+                <div class="modal-content">
+                    <button class="modal-close" id="modalClose">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <div class="modal-body">
+                        <!-- Modal content will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Page 3: Timeline -->
+        <section class="page" id="page-timeline" data-page="timeline">
+            <div class="page-header">
+                <h2 class="page-title animate-slide-up">
+                    <i class="fas fa-road"></i> Perjalanan Pengembangan
+                </h2>
+                <p class="page-subtitle animate-slide-up delay-1">
+                    Garis waktu perkembangan keahlian dan sertifikasi selama 5 tahun terakhir.
+                </p>
+            </div>
+            
+            <div class="timeline-container animate-fade-in delay-2">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2023</div>
+                        <div class="timeline-content">
+                            <h3>Spesialisasi Lanjutan</h3>
+                            <p>Fokus pada pengembangan keahlian tingkat lanjut di bidang teknologi dan kepemimpinan.</p>
+                            <div class="timeline-certs">
+                                <span class="timeline-cert">Google UX Design</span>
+                                <span class="timeline-cert">AWS Solutions Architect</span>
+                                <span class="timeline-cert">Leadership & Management</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2022</div>
+                        <div class="timeline-content">
+                            <h3>Ekspansi Keahlian Teknis</h3>
+                            <p>Memperdalam pengetahuan di bidang data science, machine learning, dan pengembangan game.</p>
+                            <div class="timeline-certs">
+                                <span class="timeline-cert">Data Science Specialization</span>
+                                <span class="timeline-cert">Unity Certified Developer</span>
+                                <span class="timeline-cert">Digital Marketing</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2021</div>
+                        <div class="timeline-content">
+                            <h3>Pengembangan Fundamental</h3>
+                            <p>Membangun dasar yang kuat dalam pemrograman, desain UI/UX, dan keterampilan lunak.</p>
+                            <div class="timeline-certs">
+                                <span class="timeline-cert">Full-Stack Development</span>
+                                <span class="timeline-cert">UI/UX Design</span>
+                                <span class="timeline-cert">Project Management</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2020</div>
+                        <div class="timeline-content">
+                            <h3>Awal Perjalanan Profesional</h3>
+                            <p>Memulai perjalanan sertifikasi profesional dengan fokus pada dasar-dasar teknologi.</p>
+                            <div class="timeline-certs">
+                                <span class="timeline-cert">Frontend Development</span>
+                                <span class="timeline-cert">Python Programming</span>
+                                <span class="timeline-cert">Digital Literacy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-stats animate-slide-up delay-3">
+                <div class="stat-card">
+                    <div class="stat-icon">📈</div>
+                    <div class="stat-info">
+                        <div class="stat-number">+240%</div>
+                        <div class="stat-label">Peningkatan Kompetensi</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-info">
+                        <div class="stat-number">96%</div>
+                        <div class="stat-label">Relevansi Industri</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🚀</div>
+                    <div class="stat-info">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Proyek Terselesaikan</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Page 4: About -->
+        <section class="page" id="page-about" data-page="about">
+            <div class="page-header">
+                <h2 class="page-title animate-slide-up">
+                    <i class="fas fa-user-tie"></i> Profil Profesional
+                </h2>
+                <p class="page-subtitle animate-slide-up delay-1">
+                    Tentang saya, keahlian, dan pendekatan terhadap pengembangan profesional.
+                </p>
+            </div>
+            
+            <div class="profile-container animate-fade-in delay-2">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <div class="avatar-icon">👨‍💻</div>
+                            <div class="online-status"></div>
+                        </div>
+                        <div class="profile-info">
+                            <h3>Alexander Chen</h3>
+                            <p>Full-Stack Developer & UX Designer</p>
+                            <div class="profile-location">
+                                <i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-bio">
+                        <p>Profesional dengan 5+ tahun pengalaman dalam pengembangan web, desain UX, dan manajemen proyek. Terus mengembangkan keahlian melalui sertifikasi profesional dan pembelajaran berkelanjutan.</p>
+                    </div>
+                    
+                    <div class="profile-skills">
+                        <h4><i class="fas fa-star"></i> Keahlian Inti</h4>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-name">Full-Stack Development</div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">UI/UX Design</div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Cloud Architecture</div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Project Management</div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="approach-card">
+                    <h3><i class="fas fa-bullseye"></i> Pendekatan Profesional</h3>
+                    <div class="approach-list">
+                        <div class="approach-item">
+                            <div class="approach-icon">🎯</div>
+                            <div class="approach-content">
+                                <h4>Berorientasi Hasil</h4>
+                                <p>Fokus pada pencapaian tujuan dan KPI yang terukur</p>
+                            </div>
+                        </div>
+                        <div class="approach-item">
+                            <div class="approach-icon">🔄</div>
+                            <div class="approach-content">
+                                <h4>Pembelajaran Berkelanjutan</h4>
+                                <p>Selalu update dengan teknologi dan metodologi terbaru</p>
+                            </div>
+                        </div>
+                        <div class="approach-item">
+                            <div class="approach-icon">🤝</div>
+                            <div class="approach-content">
+                                <h4>Kolaboratif</h4>
+                                <p>Bekerja efektif dalam tim lintas fungsi</p>
+                            </div>
+                        </div>
+                        <div class="approach-item">
+                            <div class="approach-icon">📊</div>
+                            <div class="approach-content">
+                                <h4>Data-Driven</h4>
+                                <p>Berdasarkan data dan analisis dalam pengambilan keputusan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tools-section animate-slide-up delay-3">
+                <h3><i class="fas fa-tools"></i> Tools & Teknologi</h3>
+                <div class="tools-grid">
+                    <div class="tool-item">
+                        <div class="tool-icon"><i class="fab fa-react"></i></div>
+                        <div class="tool-name">React</div>
+                    </div>
+                    <div class="tool-item">
+                        <div class="tool-icon"><i class="fab fa-node-js"></i></div>
+                        <div class="tool-name">Node.js</div>
+                    </div>
+                    <div class="tool-item">
+                        <div class="tool-icon"><i class="fab fa-figma"></i></div>
+                        <div class="tool-name">Figma</div>
+                    </div>
+                    <div class="tool-item">
+                        <div class="tool-icon"><i class="fab fa-aws"></i></div>
+                        <div class="tool-name">AWS</div>
+                    </div>
+                    <div class="tool-item">
+                        <div class="tool-icon"><i class="fab fa-python"></i></div>
+                        <div class="tool-name">Python</div>
+                    </div>
+                    <div class="tool-item">
+                        <div class="tool-icon"><i class="fas fa-database"></i></div>
+                        <div class="tool-name">MongoDB</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Page 5: Contact -->
+        <section class="page" id="page-contact" data-page="contact">
+            <div class="page-header">
+                <h2 class="page-title animate-slide-up">
+                    <i class="fas fa-handshake"></i> Hubungi & Kolaborasi
+                </h2>
+                <p class="page-subtitle animate-slide-up delay-1">
+                    Mari berkolaborasi dalam proyek menarik atau diskusi profesional.
+                </p>
+            </div>
+            
+            <div class="contact-container animate-fade-in delay-2">
+                <div class="contact-info">
+                    <div class="info-card">
+                        <h3><i class="fas fa-envelope"></i> Informasi Kontak</h3>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <div class="contact-label">Email</div>
+                                    <div class="contact-value">alexander.chen@professional.id</div>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <div class="contact-label">Telepon</div>
+                                    <div class="contact-value">+62 812 3456 7890</div>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <div class="contact-label">Lokasi</div>
+                                    <div class="contact-value">Jakarta, Indonesia</div>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <div class="contact-label">Jam Kerja</div>
+                                    <div class="contact-value">Senin - Jumat, 09:00 - 18:00 WIB</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-card">
+                        <h3><i class="fas fa-share-alt"></i> Media Sosial</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link linkedin">
+                                <i class="fab fa-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="#" class="social-link github">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="#" class="social-link twitter">
+                                <i class="fab fa-twitter"></i>
+                                <span>Twitter</span>
+                            </a>
+                            <a href="#" class="social-link instagram">
+                                <i class="fab fa-instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3><i class="fas fa-paper-plane"></i> Kirim Pesan</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subjek</label>
+                            <select id="subject" required>
+                                <option value="">Pilih subjek...</option>
+                                <option value="kerja">Tawaran Kerja</option>
+                                <option value="freelance">Proyek Freelance</option>
+                                <option value="kolaborasi">Kolaborasi</option>
+                                <option value="sertifikasi">Verifikasi Sertifikat</option>
+                                <option value="lainnya">Lainnya</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pesan</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary submit-btn">
+                            <i class="fas fa-paper-plane"></i> Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="contact-cta animate-slide-up delay-3">
+                <h3>Siap untuk Kolaborasi?</h3>
+                <p>Mari berdiskusi tentang bagaimana saya dapat membantu mencapai tujuan profesional Anda.</p>
+                <div class="cta-buttons">
+                    <button class="btn-primary schedule-btn">
+                        <i class="fas fa-calendar"></i> Jadwalkan Meeting
+                    </button>
+                    <button class="btn-secondary download-cv">
+                        <i class="fas fa-download"></i> Download CV Lengkap
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+        <div class="progress-fill"></div>
+    </div>
+    
+    <!-- Navigation Arrows -->
+    <div class="nav-arrows">
+        <button class="nav-arrow prev-arrow" id="prevPage">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="nav-arrow next-arrow" id="nextPage">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+    
+    <!-- Page Indicator -->
+    <div class="page-indicator">
+        <span class="current-page">01</span>
+        <span class="separator">/</span>
+        <span class="total-pages">05</span>
+    </div>
+    
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader">
+            <div class="loader-icon">
+                <i class="fas fa-certificate"></i>
+            </div>
+            <div class="loader-text">Memuat Portfolio...</div>
+            <div class="loader-progress">
+                <div class="loader-bar"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JavaScript Files -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Universe | Multihobi Showcase</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Custom JS -->
+    <script defer src="assets/js/main.js"></script>
+    
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">
+            <i class="fas fa-rocket"></i>Creative<span>Universe</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#gallery">Galeri</a></li>
+                <li><a href="#skills">Skills & Tools</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+        <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+        </button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div id="particles-js"></div>
+        <div class="hero-content">
+            <h1>Selamat Datang di Creative Universe</h1>
+            <p>Di mana fotografi, desain, gaming, musik, dan eksplorasi digital bertemu dalam satu ruang kreatif. Ini bukan portofolio, ini playground imajinasi saya.</p>
+            <a href="#gallery" class="cta-button">
+                <span>Jelajahi Dunia Saya</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="fade-in">
+        <h2 class="section-title">Tentang Saya & Multihobi</h2>
+        <p class="section-subtitle">Seorang kreator yang selalu penasaran dengan berbagai bentuk ekspresi digital. Bukan ahli di satu bidang, tapi penggemar di banyak bidang.</p>
+        
+        <div class="about-content">
+            <div class="about-text">
+                <p>Halo! Saya seorang explorer kreatif yang percaya bahwa batas antara hobi dan passion itu buatan sendiri. Sejak kecil, saya selalu tertarik pada visual, suara, dan cerita—dan sekarang saya mengekspresikannya melalui berbagai medium digital.</p>
+                
+                <p>Fotografi mengajari saya tentang komposisi dan momen. Desain grafis melatih saya untuk berkomunikasi secara visual. Gaming membuka dunia narasi interaktif. Musik menjadi soundtrack kreativitas saya. Dan eksplorasi digital adalah ruang di mana semuanya bertemu.</p>
+                
+                <p>Di sini, saya berbagi proses, eksperimen, dan hasil dari playground kreatif saya. Bukan untuk pamer, tapi untuk menginspirasi dan mungkin mengajak kamu untuk juga mengeksplorasi berbagai passion yang kamu miliki.</p>
+                
+                <div class="hobby-highlights">
+                    <div class="hobby-item">
+                        <i class="fas fa-camera"></i>
+                        <h3>Fotografi</h3>
+                        <p>Merekam cerita dalam satu frame. Urban, portrait, eksperimental.</p>
+                    </div>
+                    <div class="hobby-item">
+                        <i class="fas fa-paint-brush"></i>
+                        <h3>Desain Grafis</h3>
+                        <p>Visual yang berbicara. Poster, branding, ilustrasi digital.</p>
+                    </div>
+                    <div class="hobby-item">
+                        <i class="fas fa-gamepad"></i>
+                        <h3>Gaming</h3>
+                        <p>Lebih dari sekadar main game. Esports, streaming, konten kreatif.</p>
+                    </div>
+                    <div class="hobby-item">
+                        <i class="fas fa-music"></i>
+                        <h3>Musik</h3>
+                        <p>Playlist curator, amateur producer, live performance enthusiast.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-visual">
+                <div class="visual-container">
+                    <div class="floating-element element-1">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <div class="floating-element element-2">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="floating-element element-3">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="floating-element element-4">
+                        <i class="fas fa-music"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="fade-in">
+        <h2 class="section-title">Galeri Karya & Eksperimen</h2>
+        <p class="section-subtitle">Koleksi visual dari berbagai proyek dan eksplorasi kreatif. Klik untuk melihat lebih detail.</p>
+        
+        <div class="gallery-filter">
+            <button class="filter-btn active" data-filter="all">Semua</button>
+            <button class="filter-btn" data-filter="photography">Fotografi</button>
+            <button class="filter-btn" data-filter="design">Desain</button>
+            <button class="filter-btn" data-filter="gaming">Gaming</button>
+            <button class="filter-btn" data-filter="music">Musik</button>
+        </div>
+        
+        <div class="gallery-grid">
+            <!-- Items will be populated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Skills & Tools Section -->
+    <section id="skills" class="fade-in">
+        <h2 class="section-title">Skills & Peralatan Kreatif</h2>
+        <p class="section-subtitle">Tools dan kemampuan yang saya gunakan untuk mengeksplorasi berbagai hobi digital.</p>
+        
+        <div class="skills-container">
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3><i class="fas fa-camera"></i> Fotografi & Visual</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Komposisi & Pencahayaan</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Editing & Post-Processing</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Visual Storytelling</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <h3><i class="fas fa-paint-brush"></i> Desain & Digital Art</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>UI/UX Design</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Graphic Design</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Motion Graphics</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="70"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <h3><i class="fas fa-gamepad"></i> Gaming & Konten</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Gameplay & Strategy</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Content Creation</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Live Streaming</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="70"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 4rem; text-align: center; font-family: 'Space Grotesk', sans-serif; font-size: 2rem;">Tools & Software Favorit</h3>
+            <div class="tools-grid">
+                <div class="tool-item">
+                    <i class="fab fa-adobe"></i>
+                    <p>Adobe Creative Suite</p>
+                </div>
+                <div class="tool-item">
+                    <i class="fab fa-figma"></i>
+                    <p>Figma</p>
+                </div>
+                <div class="tool-item">
+                    <i class="fas fa-cube"></i>
+                    <p>Blender</p>
+                </div>
+                <div class="tool-item">
+                    <i class="fas fa-video"></i>
+                    <p>Premiere Pro</p>
+                </div>
+                <div class="tool-item">
+                    <i class="fab fa-spotify"></i>
+                    <p>Spotify</p>
+                </div>
+                <div class="tool-item">
+                    <i class="fas fa-broadcast-tower"></i>
+                    <p>OBS Studio</p>
+                </div>
+                <div class="tool-item">
+                    <i class="fas fa-code"></i>
+                    <p>VS Code</p>
+                </div>
+                <div class="tool-item">
+                    <i class="fas fa-music"></i>
+                    <p>FL Studio</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="fade-in">
+        <h2 class="section-title">Mari Terhubung & Kolaborasi</h2>
+        <p class="section-subtitle">Punya proyek menarik? Ingin sekadar ngobrol tentang kreativitas? Yuk, kita terhubung!</p>
+        
+        <div class="contact-container">
+            <div class="social-section">
+                <h3 style="margin-bottom: 2rem; font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem;">Temukan Saya di Dunia Digital</h3>
+                <div class="social-grid">
+                    <a href="#" class="social-card">
+                        <i class="fab fa-instagram"></i>
+                        <p>Instagram</p>
+                        <small>Visual diary & behind the scene</small>
+                    </a>
+                    <a href="#" class="social-card">
+                        <i class="fab fa-twitter"></i>
+                        <p>Twitter</p>
+                        <small>Random thoughts & updates</small>
+                    </a>
+                    <a href="#" class="social-card">
+                        <i class="fab fa-youtube"></i>
+                        <p>YouTube</p>
+                        <small>Gaming & creative process</small>
+                    </a>
+                    <a href="#" class="social-card">
+                        <i class="fab fa-github"></i>
+                        <p>GitHub</p>
+                        <small>Code experiments</small>
+                    </a>
+                    <a href="#" class="social-card">
+                        <i class="fab fa-behance"></i>
+                        <p>Behance</p>
+                        <small>Design projects</small>
+                    </a>
+                    <a href="#" class="social-card">
+                        <i class="fab fa-spotify"></i>
+                        <p>Spotify</p>
+                        <small>Creative playlists</small>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3 style="margin-bottom: 2rem; font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem;">Kirim Pesan Langsung</h3>
+                <form id="messageForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Nama kamu" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email kamu" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Pesan kamu... Mau ngobrol tentang apa?" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span>Kirim Pesan</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">Creative Universe</div>
+        <p class="footer-text">Sebuah ruang digital di mana berbagai passion bertemu. Bukan tentang kesempurnaan, tapi tentang eksplorasi, proses, dan berbagi inspirasi.</p>
+        <p class="copyright">© 2023 Creative Universe. Dibuat dengan ❤️ dan banyak kafein.</p>
+    </footer>
+
+    <!-- Gallery Modal -->
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <img id="modalImage" src="" alt="">
+        </div>
+    </div>   
+</body>
+</html>
