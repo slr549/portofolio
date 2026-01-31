@@ -1301,7 +1301,6 @@ transform: scale(0.95);
 
 /* --- CONFIG TEKS BERJALAN --- */
 .animated-text {
-    background: #00f3ff;
     position: relative;
     height: 40px; /* Tinggi baris teks */
     overflow: hidden; /* Sembunyikan teks antrian */
