@@ -29,6 +29,35 @@ const DOM = {
     loadingScreen: document.getElementById('loadingScreen')
 };
 
+// ===== NAV MOBILE =====
+// Ambil elemen berdasarkan ID yang Anda tulis di HTML
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('mobileSettingsDropslide');
+
+// Cek apakah elemennya ada (untuk mencegah error)
+if (navToggle && navMenu) {
+    
+    // Pasang telinga saat tombol toggle diklik
+    navToggle.addEventListener('click', function(e) {
+        // Mencegah klik tembus ke dokumen
+        e.stopPropagation();
+        
+        // Buka/Tutup menu (tambah/hapus class 'active')
+        navMenu.classList.toggle('active');
+        
+        // Opsional: Putar ikon panah jika menu terbuka
+        navToggle.classList.toggle('rotate-icon');
+    });
+
+    // Menutup menu jika user klik di luar area menu (sembarang tempat)
+    document.addEventListener('click', function(e) {
+        if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('rotate-icon');
+        }
+    });
+}
+
 // ===== PAGE NAVIGATION =====
 
 function initNavigation() {

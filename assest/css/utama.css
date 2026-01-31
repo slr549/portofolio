@@ -626,7 +626,7 @@ header {
 }
 
 .hero-tagline {
-    display: column;
+    display: flex;
     height: auto;
     width: auto;
     font-size: 1.3rem;
@@ -1272,6 +1272,7 @@ transform: scale(0.95);
 }
 
 .profile-image img {
+    border-radius: 50%;
     position: absolute;
     inset: 0;
     width: 100%;
@@ -1300,6 +1301,7 @@ transform: scale(0.95);
 
 /* --- CONFIG TEKS BERJALAN --- */
 .animated-text {
+    background: #00f3ff;
     position: relative;
     height: 40px; /* Tinggi baris teks */
     overflow: hidden; /* Sembunyikan teks antrian */

@@ -12,7 +12,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="text-2xl font-bold text-gray-800 dark:text-white">
-            <span className="text-blue-600 dark:text-blue-400">AP</span>ortfolio
+            <span className="text-blue-600 dark:text-blue-400">CV </span>RR
           </div>
 
           {/* Desktop Menu */}

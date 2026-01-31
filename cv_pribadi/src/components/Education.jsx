@@ -22,52 +22,79 @@ const Education = () => {
   const education = [
     {
       id: 1,
-      degree: "Sarjana Komputer",
-      institution: "Universitas Dinamika",
-      period: "Okt 2015",
-      location: "Surabaya, Indonesia",
+      degree: "Sarjana Kewirausahaan",
+      period: "2025 - sekarang",
+      institution: "Institution Teknologi Bisnis Vinus",
+      location: "Bogor, Indonesia",
+      description: "",
+      gpa: "",
+      courses: [],
+      achievements: []
+    },
+    {
+      id: 2,
+      degree: "Sarjana Informatika",
+      institution: "STIKOM EL-RAHAM",
+      period: "2024 - sekarang",
+      location: "Bogor, Indonesia",
       description: "Fokus pada Software Engineering, Database Systems, dan Web Development",
       gpa: "3.8/4.0",
       courses: ["Algoritma", "Struktur Data", "Basis Data", "Jaringan Komputer", "AI"],
-      achievements: [
-        "Lulus dengan predikat Cum Laude",
-        "Proyek akhir: Sistem Manajemen Rumah Sakit berbasis Web"
-      ]
+      achievements: []
+    },
+    {
+      id: 3,
+      degree: "Ilmu Pengetahuan Alam (IPA)",
+      School: "MA AL-HAITSAM",
+      period: "2021 - 2024",
+      location: "Bogor, Indonesia",
+      description: "",
+      gpa: "",
+      courses: [],
+      achievements: []
     }
   ];
 
   const certifications = [
     {
       id: 1,
-      name: "AWS Certified Solutions Architect",
-      issuer: "Amazon Web Services",
-      date: "2022",
-      credentialId: "AWS-2022-001",
+      name: "Intro to Data Analytics",
+      issuer: "REVO U Mini Course",
+      date: "30 agustus 2024",
+      credentialId: "",
       badgeColor: "from-orange-500 to-yellow-500"
     },
     {
       id: 2,
-      name: "React Developer Certification",
-      issuer: "Meta",
-      date: "2021",
-      credentialId: "META-REACT-2021",
+      name: "Merancang Chatbot Cerdas dengan LLM dan Gemini Generative AI: Integrasi Promting dan Web Knowledge",
+      issuer: "SMELT LUMINOUS MIND",
+      date: "20 juli 2024",
+      credentialId: "",
       badgeColor: "from-blue-400 to-cyan-500"
     },
     {
       id: 3,
-      name: "Java Programming Masterclass",
-      issuer: "Udemy",
-      date: "2020",
-      credentialId: "UD-JAVA-2020",
+      name: "Essay for Indonesia Competition SejutaCita Future Leaders 11: China 2025",
+      issuer: "sejuta cita",
+      date: "30 juli 2025",
+      credentialId: "",
       badgeColor: "from-purple-500 to-pink-500"
     },
     {
       id: 4,
-      name: "Docker & Kubernetes Certified",
-      issuer: "Docker Inc.",
-      date: "2019",
-      credentialId: "DOCKER-2019",
+      name: "Safer, Smarter, and Scalable with Cloud and AI",
+      issuer: "Google Developer Group.",
+      date: "2025",
+      credentialId: "",
       badgeColor: "from-blue-500 to-blue-700"
+    },
+    {
+      id: 5,
+      name: "Router on Proxmox Networking All-in-One",
+      issuer: "ID-Networkers",
+      date: "27 okt 2025",
+      credentialId: "",
+      badgeColor: "from-green-500 to-green-700"
     }
   ];
 

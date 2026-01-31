@@ -31,7 +31,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="mb-6 md:mb-0 text-center md:text-left">
             <div className="text-2xl font-bold text-white mb-2">
-              <span className="text-blue-400">Raki</span>Raki Raihan
+              <span className="text-blue-400">Raki</span> Raihan
             </div>
             <p className="text-gray-400">
               © {currentYear} {language === 'id' ? 'Hak Cipta Dilindungi' : 'All Rights Reserved'}
@@ -58,7 +58,7 @@ const Footer = () => {
           <div className="flex items-center text-gray-400">
             {language === 'id' ? 'Dibuat dengan' : 'Made with'}
             <FaHeart className="mx-2 text-red-500 animate-pulse" />
-            {language === 'id' ? 'di Surabaya' : 'in Surabaya'}
+            {language === 'id' ? 'di Bogor' : 'in Bogor'}
           </div>
         </div>
 
@@ -69,8 +69,8 @@ const Footer = () => {
         <div className="text-center text-gray-500 text-sm">
           <p>
             {language === 'id' 
-              ? 'Portofolio profesional Raki Raihan - Perangkat Lunak, UI/UX Desain, Desain Grapis, & Web Developer'
-              : 'Raki Raihan\'s professional portfolio -Software, UI/UX Design, Graphic Design, & Web Developer'}
+              ? 'CV profesional Raki Raihan - Perangkat Lunak, UI/UX Desain, Desain Grapis, & Web Developer'
+              : 'Raki Raihan\'s professional CV -Software, UI/UX Design, Graphic Design, & Web Developer'}
           </p>
           <p className="mt-2">
             {language === 'id'

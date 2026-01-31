@@ -226,7 +226,7 @@ button {
 .theme-controls {
     position: fixed;
     left: var(--space-lg);
-    top: 50%;
+    top: 24%;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
@@ -1432,7 +1432,7 @@ button {
 }
 
 /* ===== PAGE INDICATOR ===== */
-.page-indicator {
+/*.page-indicator {
     position: fixed;
     bottom: var(--space-xl);
     left: var(--space-xl);
@@ -1444,6 +1444,26 @@ button {
     color: var(--text-primary);
     background: var(--bg-card);
     padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    z-index: var(--z-nav);
+} */
+
+.page-indicator {
+    position: fixed;
+    margin-bottom: -30px;
+    bottom: var(--space-xl);
+    left: var(--space-xl);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: var(--text-primary);
+    background: var(--bg-card);
+    padding: 1%;
+    /* padding: var(--space-sm) var(--space-md); */
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow);
     border: 1px solid var(--border);
@@ -1515,6 +1535,37 @@ button {
     animation: loading 2s ease-in-out infinite;
 }
 
+/* ===== Mobile ===== */
+/* Keadaan Awal: Menu Sembunyi */
+#mobileSettingsDropslide {
+    display: none;
+    /* Sembunyikan dengan menggeser ke kanan layar, atau opacity 0 */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(20px); /* Geser sedikit biar ada efek gerak */
+    transition: all 0.3s ease;   /* Animasi halus */
+    
+    /* Pastikan posisinya benar (sesuaikan dengan desain Anda) */
+    position: absolute; 
+    bottom: 60px; /* Di atas tombol */
+    right: 0;
+}
+
+/* Keadaan Aktif: Menu Muncul */
+#mobileSettingsDropslide.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);    /* Balik ke posisi normal */
+}
+
+/* Opsional: Memutar panah saat menu terbuka */
+#navToggle i {
+    transition: transform 0.3s ease;
+}
+#navToggle.rotate-icon i {
+    transform: rotate(180deg); /* Panah berputar balik */
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 1200px) {
     .hero-container {
@@ -1549,10 +1600,48 @@ button {
         font-size: 2.5rem;
     }
     
-    .nav-dots,
     .theme-controls {
-        display: none;
+        display: relative;
+        margin-top: 10%;
+        left: 21px;
     }
+
+    /* ===== navigation Dekstop ===== */
+    .nav-dots {
+        display: none;
+        gap: 7px;
+    }
+
+    .nav-controls {
+        display: none;
+        position: fixed;
+        left: var(--space-lg);
+        top: 50%;
+        left: 350px;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+        z-index: var(--z-nav);
+    }
+
+    /* .nav-btn-mobile {
+        display: none;
+        width: 56px;
+        height: 56px;
+        right: 33px;
+        top: -225px;
+        border-radius: var(--radius-lg);
+        background: var(--bg-card);
+        border: 2px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        transition: all var(--transition-normal);
+        box-shadow: var(--shadow);
+    } */
+    /* ========== */
     
     .certificates-grid {
         grid-template-columns: 1fr;
@@ -1560,6 +1649,7 @@ button {
     
     .filter-controls {
         flex-direction: column;
+        transition-property: var(--shadow);
     }
     
     .cta-buttons {
@@ -1580,9 +1670,12 @@ button {
     }
     
     .page-indicator {
+        margin-bottom: 5px;
         bottom: var(--space-md);
         left: var(--space-md);
     }
+
+    /* ===== Drop Slide Mobile =====*/
 }
 
 @media (max-width: 480px) {
