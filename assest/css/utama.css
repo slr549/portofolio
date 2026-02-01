@@ -1,3 +1,9 @@
+/* animasi putar */
+@keyframes putar {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 /* Three.js Background */
 #three-bg {
     position: fixed; /* Tetap di tempat saat scroll */
@@ -525,23 +531,30 @@ header {
     padding: 8px 0;
 }
 
-.nav-links a::after {
+.dropdown-content a::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 0;
     height: 2px;
+    color: green;
     background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
     transition: width 0.3s ease;
 }
 
-.nav-links a:hover {
+.nav-links.dropdown-content a:hover {
     color: var(--primary-color);
 }
 
-.nav-links a:hover::after {
+.dropdown-content a:hover::after {
     width: 100%;
+}
+
+/* PAKAI INI */
+.list:hover::after {
+    opacity: 1;     /* Munculkan */
+    animation: putar 1s linear infinite; /* Putar terus menerus */
 }
 
 .nav-dropdown {
@@ -1375,4 +1388,101 @@ transform: scale(0.95);
 .center {
     text-align: center;
     align-items: center;
+}
+
+/* nav list animation */
+/* 1. KERANGKA (Harus Selalu Ada) */
+.list:hover {
+  /* Layout & Posisi */
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: flex;             /* Wajib di sini agar isi tetap di tengah */
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  
+  /* Bentuk Awal (Sebelum disentuh) */
+  border-radius: 50%;        /* Lingkaran */
+  transition: 0.3s;          /* Agar perubahannya mulus */
+  
+  /* Warna Awal (Polos/Transparan) */
+  background: transparent;   /* Tidak ada warna background */
+  color: #333;               /* Icon warna gelap */
+}
+
+/* 2. KOSMETIK (Muncul Hanya Saat Disentuh/Hover) */
+.list:hover {
+  /* Munculkan warna background */
+  background: linear-gradient(135deg, var(--primary-color, #ff651c), var(--secondary-color, #ff0055));
+  
+  /* Ubah warna icon jadi putih agar kontras */
+  color: white;
+  
+  /* Tambah bayangan */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  
+  /* Opsional: Efek membesar sedikit */
+  transform: scale(1.1);
+}
+
+/* PAKAI INI */
+.list::after {
+    content: '';
+    position: absolute;
+    inset: -4px;            /* Membuat lingkaran lebih besar dari tombol */
+    border-radius: 50%;     /* Wajib bulat */
+    border: 2px solid transparent; /* Garis dasar transparan */
+    
+    /* Kita warnai SISI ATAS & KANAN saja agar terlihat berputar */
+    border-top-color: var(--primary-color, #ff651c);
+    border-right-color: var(--secondary-color, #ff0055);
+    
+    opacity: 0;             /* Sembunyi dulu */
+    transition: opacity 0.3s ease;
+    pointer-events: none;   /* Agar tidak mengganggu klik */
+}
+
+/* --- 3. Styling Tooltip (Muncul di BAWAH) --- */
+.social__tooltip {
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 120%; /* Posisi awal di bawah ikon */
+  left: 50%;
+  transform: translateX(-50%); /* Geser ke tengah */
+  
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color, #ff651c);
+  color: #fff;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  pointer-events: none;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Efek membal */
+  z-index: 10;
+}
+
+/* Segitiga Kecil di Atas Tooltip */
+.social__tooltip::after {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: var(--primary-color, #ff651c);
+  top: -4px; /* Naik sedikit */
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg); /* Putar jadi wajik */
+  z-index: -93;
+}
+
+/* --- 4. Animasi Muncul --- */
+.list:hover .social__tooltip {
+  z-index: 102;
+  opacity: 1;
+  visibility: visible;
+  top: 135%; /* Turun sedikit saat muncul (efek drop) */
 }
