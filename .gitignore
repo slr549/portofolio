@@ -1,11 +1,7 @@
-node_modules/
-**/node_modules/
-
-.env
-**/.env
-
 # Dependency directories
 node_modules/
+.vscode/
+.github/
 
 # Production build
 # build/

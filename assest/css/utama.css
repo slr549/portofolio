@@ -1486,3 +1486,49 @@ transform: scale(0.95);
   visibility: visible;
   top: 135%; /* Turun sedikit saat muncul (efek drop) */
 }
+
+/* --- tooltip for All ---*/
+
+.social__tooltip_all {
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 60%; /* Posisi awal di bawah ikon */
+  left: 50%;
+  transform: translateX(-50%); /* Geser ke tengah */
+  
+  padding: 0.3rem 1rem;
+  background-color: var(--primary-color, #ff651c);
+  color: #fff;
+  font-size: 0.6rem;
+  white-space: nowrap;
+  font-weight: 300;
+  border-radius: 0.3rem;
+  pointer-events: none;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Efek membal */
+  z-index: 10;
+}
+
+/* Segitiga Kecil di Atas Tooltip */
+.social__tooltip_all::after {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: var(--primary-color, #ff651c);
+  top: -4px; /* Naik sedikit */
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg); /* Putar jadi wajik */
+  z-index: -93;
+}
+
+/* --- 4. Animasi Muncul --- */
+.list,
+.social-link:hover .social__tooltip_all {
+  z-index: 999;
+  opacity: 1;
+  visibility: visible;
+  top: 135%; /* Turun sedikit saat muncul (efek drop) */
+}
